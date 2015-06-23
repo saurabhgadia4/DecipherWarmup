@@ -1,0 +1,7 @@
+CORPUS_FILE = "corpus.en"
+CORPUS_WORDS = "corpWords.txt"
+CORPUS_CHARS = "corpChar.txt"
+CORP_SHIFT = "corpShift.txt"
+CORP_JOIN = "corpJoin.txt"
+CORP_STAT = "corpStat.txt"
+CHAR_COUNT = "charCnt.txt"

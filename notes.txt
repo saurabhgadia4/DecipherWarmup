@@ -13,3 +13,6 @@ paste file1 file2 > file3
 5. Calculating C(u,v)
 sort corpjoin.txt | uniq -ic | sort -r > corpstats.txt
 
+6. Counting character occurrances in a file
+grep "h" -o test.txt | wc -l
+
