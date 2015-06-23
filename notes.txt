@@ -1,0 +1,15 @@
+1. For splitting the text file word/line. 
+tr -sc 'A-Za-z' '\012' < corpus.en > corpword.txt
+
+2. cat file2.txt | fold -w1 > file3.txt
+ for character/line
+
+3. shifting lines of files
+tail --lines +2 file3.txt > file4shift.txt
+
+4. pasting the two files
+paste file1 file2 > file3
+
+5. Calculating C(u,v)
+sort corpjoin.txt | uniq -ic | sort -r > corpstats.txt
+
