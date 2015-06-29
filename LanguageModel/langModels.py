@@ -1,17 +1,22 @@
 import logging
+import langParam
 from strings import ascii_lowercase
 
-class Bigram():
-	def __init__(self):
-		self.computeMat = {}
-		self.computeMat['.'] = {}
+class Unigram():
+    def __init__(self):
+        pass
 
-	def initMatrix(self):
-		for l in ascii_lowercase:
+class Bigram():
+    def __init__(self):
+        self.computeMat = {}
+        self.computeMat['.'] = {}
+
+    def initMatrix(self):
+        for l in ascii_lowercase:
             self.computeMat[l] = {}
 
-	def genScoreMatrix(self):
-		#7. Extracting count for generating scoring matrix
+    def genScoreMatrix(self):
+        #7. Extracting count for generating scoring matrix
         try:
             fp = open(CORP_STAT, "r")
             text = fp.readline()
@@ -27,3 +32,14 @@ class Bigram():
         except Exception as err:
             logging.exception(err)
 
+    def calculateBigram():
+    try:
+        scoring.bigram(VALID_SENTENCE)
+        scoring.bigram(TEST_SENTENCE)
+        scoring.bigram(NEW_TEST)
+    except Exception as e:
+        logging.exception(e)
+
+class Trigram():
+    def __init__(self):
+        pass
