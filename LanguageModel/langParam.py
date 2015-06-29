@@ -16,10 +16,6 @@ TRIGRAM_STAT = "TrigramStat.txt"
 BIGRAM_FILES = [CORPUS_WORDS, CORPUS_CHARS, CORP_SHIFT_1, BIGRAM_PAIR, BIGRAM_STAT, UNIGRAM_STAT]
 TRIGRAM_FILES = [CORPUS_WORDS, CORPUS_CHARS, CORP_SHIFT_1, CORP_SHIFT_2, TRIGRAM_PAIR, TRIGRAM_STAT, BIGRAM_STAT]
 
-computeUniMat = {}
-computeTriMat = {}
-
-
 VALID_SENTENCE =[ 
 'thepanelisalsoexpectedtorecommendthatthewhitehouse',
 'theiraniangovernmenthasmaintainedthatitknowsnothin',

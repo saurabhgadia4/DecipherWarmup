@@ -1,5 +1,8 @@
 import os
 import logging
+import subprocess
+from langParam import *
+from string import ascii_lowercase
 
 def deleteFiles(path=None, files=[]):
     try:
@@ -9,55 +12,47 @@ def deleteFiles(path=None, files=[]):
         for file in files:
             if os.path.exists(file):
                 os.remove(file)
+        logging.info("successfully deleted bigram related files")
     except Exception as e:
         logging.exception(e)
 
 def sentToWords():
 # #1. splitting file by words
     try:
-        if os.path.exists(CORPUS_FILE):
-            if not os.path.exists(CORPUS_WORDS):
-                command = "tr -sc \'A-Za-z\.\' \'\012\' < " + CORPUS_FILE + ">" + CORPUS_WORDS
-                ret = subprocess.call(command, shell=True)
-                if(ret):
-                    print "Error"
-                    sys.exit(-1)
-                logging.info('successfully created word file')
-            else:
-                logging.info('Corpus word file already present')
-
-        else:
-            logging.info("Corpus File is missing")
+    
+        command = "tr -sc \'A-Za-z\.\' \'\012\' < " + CORPUS_FILE + ">" + CORPUS_WORDS
+        ret = subprocess.call(command, shell=True)
+        if(ret):
+            print "Error"
+            sys.exit(-1)
+        logging.info('successfully created word file')
+    
     except Exception as e:
         logging.exception(e)
 
 def wordsToChar():
 # # #2. splitting words by char/line
     try:
-        if not os.path.exists(CORPUS_CHARS):
-            command = "cat " + CORPUS_WORDS + "| fold -w1 > " + CORPUS_CHARS
-            ret = subprocess.call(command, shell=True)
-            if(ret):
-                print "Error"
-                sys.exit(-1)
-            logging.info('successfully created char file')
-        else:
-            logging.info("Character file already present")
+        command = "cat " + CORPUS_WORDS + "| fold -w1 > " + CORPUS_CHARS
+        ret = subprocess.call(command, shell=True)
+        if(ret):
+            print "Error"
+            sys.exit(-1)
+        logging.info('successfully created char file')
     except Exception as e:
         logging.exception(e)
 
 def shiftSequence(nchar, filename):
 # # #3. Shifting chars
     try:
-        if not os.path.exists(filename):
-            command = "tail --lines +"+ str(nchar) +" "+ CORPUS_CHARS + " > " + filename 
-            ret = subprocess.call(command, shell=True)
-            if(ret):
-                print "Error"
-                sys.exit(-1)
-            logging.info('Successfully shifted char file')
-        else:
-            logging.info("Required sequence file already present")
+        
+        command = "tail --lines +"+ str(nchar) +" "+ CORPUS_CHARS + " > " + filename 
+        ret = subprocess.call(command, shell=True)
+        if(ret):
+            print "Error"
+            sys.exit(-1)
+        logging.info('Successfully shifted char file')
+    
     except Exception as e:
         logging.exception(e)
 
@@ -96,24 +91,24 @@ def cleanStats():
 
 def genCharCount():
     for l in ascii_lowercase:
-        command = "grep "+ l +" -o " + CORPUS_FILE + " | wc -l >> " + CHAR_COUNT
+        command = "grep "+ l +" -o " + CORPUS_FILE + " | wc -l >> " + UNIGRAM_STAT
         ret = subprocess.call(command, shell=True)
         if(ret):
             print "Error"
             sys.exit(-1)
-    startCountCmd = "grep "+ '\'\.\'' +" -o " + CORPUS_FILE + " | wc -l >> " + CHAR_COUNT    
+    startCountCmd = "grep "+ '\'\.\'' +" -o " + CORPUS_FILE + " | wc -l >> " + UNIGRAM_STAT    
     ret = subprocess.call(startCountCmd, shell=True)
     print 'successfully counted characters'
 
-def storeCharCount():
-    try:
-        fp = open(CHAR_COUNT, "r")
-        for c in ascii_lowercase:
+def getCharCount():
+        totalCount = {}
+        try:
+            fp = open(UNIGRAM_STAT, "r")
+            for c in ascii_lowercase:
+                text = fp.readline()
+                totalCount[c] = int(text)
             text = fp.readline()
-            totalBiCount[c] = int(text)
-        text = fp.readline()
-        totalBiCount['.'] = int(text)
-    
-    except Exception as err:
-        logging.exception(err)
-
+            totalCount['.'] = int(text)
+        except Exception as err:
+            logging.exception(err)
+        return totalCount
