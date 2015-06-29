@@ -53,7 +53,6 @@ class BigramModel():
             logging.exception(e)
 
     def __bigram(self, text):
-        print 'minCount: ',self.minCount
         possibility = 1
         rowPoss = []
         for row in text:
@@ -78,7 +77,7 @@ class BigramModel():
                 possibility = possibility*(float(condCount)/prefixCount)
                 #print 'p(%r|%r)'%(current,prefix),'--> condCount: ',condCount, ' prefixCount: ', prefixCount, ' =', possibility 
             except KeyError:
-                self.computeMat[prefix][current] = self.minCount
+                condCount = self.computeMat[prefix][current] = self.minCount
                 prefixCount = self.totalCount[prefix]
                 possibility = possibility*(float(condCount)/prefixCount)
 
@@ -104,13 +103,14 @@ class BigramModel():
         self.genScoreMatrix()
 
     def generate(self):
+        self.getScoreMat()
         #8. generate unigram score
         langCompute.genCharCount()
         #9. 
         self.totalCount = langCompute.getCharCount()
         #10 get the score
         self.getScore()
-        langCompute.deleteFiles(files=langParam.BIGRAM_FILES)
+        #langCompute.deleteFiles(files=langParam.BIGRAM_FILES)
 
 class TrigramModel():
     def __init__(self):
@@ -131,7 +131,7 @@ class TrigramModel():
             self.computeMat[revperiodText] = {}
 
     def getScoreMat(self):
-        self.bigramStub.getScoreMat()
+        self.bigramStub.generate()
         #3. Shift by one character
         langCompute.shiftSequence(3, langParam.CORP_SHIFT_2)
         #4. Join character files
@@ -143,6 +143,7 @@ class TrigramModel():
         langCompute.calPairCount(langParam.TRIGRAM_PAIR, langParam.TRIGRAM_STAT)  
 
         self.genScoreMatrix()
+        self.getScore()
 
     def genScoreMatrix(self):
         #7. Extracting count for generating scoring matrix
@@ -158,12 +159,55 @@ class TrigramModel():
                     self.computeMat[prefix][text[3]] = int(text[0])
                     if int(text[0])<self.minCount:
                         self.minCount = int(text[0])
-            print self.computeMat
-            print 'min',self.minCount
                         
         except Exception as err:
             logging.exception(err)
 
+    def getScore(self):
+        try:
+            self.__trigram(langParam.VALID_SENTENCE)
+            self.__trigram(langParam.TEST_SENTENCE)
+            self.__trigram(langParam.NEW_TEST)
+        except Exception as e:
+            logging.exception(e)
+
+    def __trigram(self, text):
+        possibility = 1
+        rowPoss = []
+        for row in text:
+            row = '.' + row
+            rowPoss.append(self.__calCond(row))
+
+        print 'rowPoss',rowPoss
+        print 'max', max(rowPoss)
+        print 'min', min(rowPoss)
+        print 'avg', statistics.mean(rowPoss)
+
+    def __calCond(self, row):
+        possibility =1
+        row = list(row)
+        for i in range(1, len(row)-1):
+            try:
+                triPrefix = row[i-1] + row[i]
+                triCurrent = row[i+1]
+                biPrefix = row[i-1]
+                biCurrent = row[i]
+                #print prefix,'-',current
+                condCount = self.computeMat[triPrefix][triCurrent]
+                prefixCount = self.bigramStub.computeMat[biPrefix][biCurrent]
+                possibility = possibility*(float(condCount)/prefixCount)
+                #print 'p(%r|%r)'%(current,prefix),'--> condCount: ',condCount, ' prefixCount: ', prefixCount, ' =', possibility 
+            except KeyError:
+                biPrefix = row[i-1]
+                biCurrent = row[i]
+                condCount = self.computeMat[triPrefix][triCurrent] = self.minCount
+                prefixCount = self.bigramStub.computeMat[biPrefix][biCurrent]
+                possibility = possibility*(float(condCount)/prefixCount)
+
+        return possibility
+
 
     def generate(self):
         self.getScoreMat()
+        langCompute.deleteFiles(files=langParam.TRIGRAM_FILES)
+        langCompute.deleteFiles(files=langParam.BIGRAM_FILES)

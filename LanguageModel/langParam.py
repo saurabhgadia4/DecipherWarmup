@@ -31,6 +31,8 @@ VALID_SENTENCE =[
 'onekeyhurdleforteslainproducingthenewsmallercarwil']
 
 TEST_SENTENCE = [
+'incasetherewasstillanydoubtleftrowlingpostedatweet',
+'onmondaywithapromotionalimageforharrypotterandthec',
 'heeemirhcletshlohttwhsnpuesecetottipoenadeamtoaexd',
 'tnreaaahninsnootottnhiaihkvnnhimttwmtieadnrisegena',
 'raomnnaytihhgchawbsindcasveedreeipeeenngcethcltswi',

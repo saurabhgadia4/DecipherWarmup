@@ -12,7 +12,7 @@ def deleteFiles(path=None, files=[]):
         for file in files:
             if os.path.exists(file):
                 os.remove(file)
-        logging.info("successfully deleted bigram related files")
+        logging.info("successfully deleted files")
     except Exception as e:
         logging.exception(e)
 
@@ -121,6 +121,6 @@ def removeLastLines(nlines, inputfile, outputfile):
             if(ret):
                 print "Error"
                 sys.exit(-1)
-            print 'successfully removed bigram pair'
+            print 'successfully removed ',nlines, 'from ',inputfile
         except Exception as e:
             logging.exception(e)
