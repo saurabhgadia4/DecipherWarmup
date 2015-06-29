@@ -112,3 +112,15 @@ def getCharCount():
         except Exception as err:
             logging.exception(err)
         return totalCount
+
+def removeLastLines(nlines, inputfile, outputfile):
+        #6 removing lone '.' count
+        try:
+            command = "head -n -" + str(nlines) +" "+inputfile + " > " + outputfile
+            ret = subprocess.call(command, shell=True)
+            if(ret):
+                print "Error"
+                sys.exit(-1)
+            print 'successfully removed bigram pair'
+        except Exception as e:
+            logging.exception(e)

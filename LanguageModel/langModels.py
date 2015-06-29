@@ -18,13 +18,12 @@ class UnigramModel():
 class BigramModel():
     def __init__(self):
         self.computeMat = {}
-        self.computeMat['.'] = {}
-        self.unigramObj = UnigramModel()
-        self.initMatrix()
+        self.__initMatrix()
         self.minCount = 999999
         self.totalCount = None
 
-    def initMatrix(self):
+    def __initMatrix(self):
+        self.computeMat['.'] = {}
         for l in ascii_lowercase:
             self.computeMat[l] = {}
 
@@ -85,20 +84,7 @@ class BigramModel():
 
         return possibility
 
-    def cleanStat(self):
-        #6 removing lone '.' count
-        try:
-            command = "sed -i \' $ d\' " + langParam.BIGRAM_STAT 
-            ret = subprocess.call(command, shell=True)
-            if(ret):
-                print "Error"
-                sys.exit(-1)
-            print 'successfully removed bigram pair'
-        except Exception as e:
-            logging.exception(e)
-
-
-    def generate(self):
+    def getScoreMat(self):
         #1. Break sentence to words
         langCompute.sentToWords()
 
@@ -108,13 +94,16 @@ class BigramModel():
         #3. Shift by one character
         langCompute.shiftSequence(2, langParam.CORP_SHIFT_1)
         #4. Join character files
-        langCompute.formPairs(langParam.BIGRAM_PAIR, langParam.CORPUS_CHARS, langParam.CORP_SHIFT_1)
-        #5. Calculating bigram count
+        langCompute.formPairs(langParam.BIGRAM_PAIR_TEMP, langParam.CORPUS_CHARS, langParam.CORP_SHIFT_1)
+        #5 Clean bigram stats
+        langCompute.removeLastLines(1, langParam.BIGRAM_PAIR_TEMP, langParam.BIGRAM_PAIR)
+        #6. Calculating bigram count
         langCompute.calPairCount(langParam.BIGRAM_PAIR, langParam.BIGRAM_STAT)  
-        #6 Clean bigram stats
-        self.cleanStat()
+        
         #7. generate score matrix
         self.genScoreMatrix()
+
+    def generate(self):
         #8. generate unigram score
         langCompute.genCharCount()
         #9. 
@@ -127,4 +116,54 @@ class TrigramModel():
     def __init__(self):
         self.bigramStub = BigramModel()
         self.computeMat = {}
-        self.computeMat['.'] = {}   
+        self.__initMatrix()
+        self.minCount = 9999999
+
+    def __initMatrix(self):
+        self.computeMat['..'] = {}
+        for l in ascii_lowercase:
+            for m in ascii_lowercase:
+                text = l+m
+                self.computeMat[text]={}
+            periodText = '.'+l
+            revperiodText = l+'.'
+            self.computeMat[periodText] = {}
+            self.computeMat[revperiodText] = {}
+
+    def getScoreMat(self):
+        self.bigramStub.getScoreMat()
+        #3. Shift by one character
+        langCompute.shiftSequence(3, langParam.CORP_SHIFT_2)
+        #4. Join character files
+        langCompute.formPairs(langParam.TRIGRAM_PAIR_TEMP, langParam.CORPUS_CHARS, langParam.CORP_SHIFT_1, langParam.CORP_SHIFT_2)
+        #5 Clean bigram stats
+        langCompute.removeLastLines(2, langParam.TRIGRAM_PAIR_TEMP, langParam.TRIGRAM_PAIR)
+
+        #6. Calculating bigram count
+        langCompute.calPairCount(langParam.TRIGRAM_PAIR, langParam.TRIGRAM_STAT)  
+
+        self.genScoreMatrix()
+
+    def genScoreMatrix(self):
+        #7. Extracting count for generating scoring matrix
+        try:
+            fp = open(langParam.TRIGRAM_STAT, "r")
+            text = fp.readline()
+            while(text):
+                text = fp.readline()
+                text = text.lstrip()
+                text = text.split()
+                if text:
+                    prefix = text[1] + text[2]
+                    self.computeMat[prefix][text[3]] = int(text[0])
+                    if int(text[0])<self.minCount:
+                        self.minCount = int(text[0])
+            print self.computeMat
+            print 'min',self.minCount
+                        
+        except Exception as err:
+            logging.exception(err)
+
+
+    def generate(self):
+        self.getScoreMat()

@@ -7,9 +7,11 @@ CORP_SHIFT_2 = "CorpShift_2.txt"
 UNIGRAM_STAT = "UnigramStat.txt"
 
 BIGRAM_PAIR  = "BigramPair.txt"
+BIGRAM_PAIR_TEMP = "BPairTemp.txt"
 BIGRAM_STAT  = "BigramStat.txt"
 
 TRIGRAM_PAIR = "TrigramPair.txt"
+TRIGRAM_PAIR_TEMP = "TriPairTemp.txt"
 TRIGRAM_STAT = "TrigramStat.txt" 
 
 
