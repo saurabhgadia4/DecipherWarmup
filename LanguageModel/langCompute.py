@@ -14,46 +14,71 @@ def deleteFiles(path=None, files=[]):
 
 def sentToWords():
 # #1. splitting file by words
-    command = "tr -sc \'A-Za-z\.\' \'\012\' < " + CORPUS_FILE + ">" + CORPUS_WORDS
-    ret = subprocess.call(command, shell=True)
-    if(ret):
-        print "Error"
-        sys.exit(-1)
-    print 'successfully created word file'
+    try:
+        if os.path.exists(CORPUS_FILE):
+            if not os.path.exists(CORPUS_WORDS):
+                command = "tr -sc \'A-Za-z\.\' \'\012\' < " + CORPUS_FILE + ">" + CORPUS_WORDS
+                ret = subprocess.call(command, shell=True)
+                if(ret):
+                    print "Error"
+                    sys.exit(-1)
+                logging.info('successfully created word file')
+            else:
+                logging.info('Corpus word file already present')
+
+        else:
+            logging.info("Corpus File is missing")
+    except Exception as e:
+        logging.exception(e)
 
 def wordsToChar():
 # # #2. splitting words by char/line
-    command = "cat " + CORPUS_WORDS + "| fold -w1 > " + CORPUS_CHARS
-    ret = subprocess.call(command, shell=True)
-    if(ret):
-        print "Error"
-        sys.exit(-1)
-    print 'successfully created char file'
+    try:
+        if not os.path.exists(CORPUS_CHARS):
+            command = "cat " + CORPUS_WORDS + "| fold -w1 > " + CORPUS_CHARS
+            ret = subprocess.call(command, shell=True)
+            if(ret):
+                print "Error"
+                sys.exit(-1)
+            logging.info('successfully created char file')
+        else:
+            logging.info("Character file already present")
+    except Exception as e:
+        logging.exception(e)
 
 def shiftSequence(nchar, filename):
 # # #3. Shifting chars
-    command = "tail --lines +"+ str(nchar) +" "+ CORPUS_CHARS + " > " + filename 
-    ret = subprocess.call(command, shell=True)
-    if(ret):
-        print "Error"
-        sys.exit(-1)
-    print 'successfully shifted char file'
+    try:
+        if not os.path.exists(filename):
+            command = "tail --lines +"+ str(nchar) +" "+ CORPUS_CHARS + " > " + filename 
+            ret = subprocess.call(command, shell=True)
+            if(ret):
+                print "Error"
+                sys.exit(-1)
+            logging.info('Successfully shifted char file')
+        else:
+            logging.info("Required sequence file already present")
+    except Exception as e:
+        logging.exception(e)
 
 def formPairs(output, *args):
-    files = " "
-    for f in args:
-        files = files + str(f) + " "
+    try:
+        files = " "
+        for f in args:
+            files = files + str(f) + " "
 
-    command = "paste " + files + " > " + output
-    ret = subprocess.call(command, shell=True)
-    if(ret):
-        print "Error"
-        sys.exit(-1)
-    print 'successfully created bigram pair'
+        command = "paste " + files + " > " + output
+        ret = subprocess.call(command, shell=True)
+        if(ret):
+            print "Error"
+            sys.exit(-1)
+        logging.info('successfully created bigram pair')
+    except Exception as e:
+        logging.exception(e)
 
-def calcPairCount(filename, output):
+def calPairCount(inputfile, outputfile):
 # # #5. Calculating bigram count
-    command = "sort " + filename + " | uniq -ic " + " | sort -r > " + output
+    command = "sort " + inputfile + " | uniq -ic " + " | sort -r > " + outputfile
     ret = subprocess.call(command, shell=True)
     if(ret):
         print "Error"
