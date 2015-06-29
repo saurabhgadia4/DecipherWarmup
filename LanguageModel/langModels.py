@@ -63,6 +63,8 @@ class BigramModel():
         print 'max', max(rowPoss)
         print 'min', min(rowPoss)
         print 'avg', statistics.mean(rowPoss)
+        print 'variance', statistics.variance(rowPoss)
+        print 'stdev', statistics.stdev(rowPoss)
 
     def __calCond(self, row):
         possibility =1
@@ -182,6 +184,8 @@ class TrigramModel():
         print 'max', max(rowPoss)
         print 'min', min(rowPoss)
         print 'avg', statistics.mean(rowPoss)
+        print 'variance', statistics.variance(rowPoss)
+        print 'stdev', statistics.stdev(rowPoss)
 
     def __calCond(self, row):
         possibility =1
