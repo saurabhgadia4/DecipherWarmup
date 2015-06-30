@@ -24,6 +24,8 @@ class BigramModel():
 
     def __initMatrix(self):
         self.computeMat['.'] = {}
+        self.computeMat['~'] = {}
+
         for l in ascii_lowercase:
             self.computeMat[l] = {}
 
@@ -36,7 +38,7 @@ class BigramModel():
                 text = fp.readline()
                 text = text.lstrip()
                 text = text.split()
-                if text:
+                if text and not (text[1]==text[2]=='.') and not (text[1]==text[2]=='~'):
                     self.computeMat[text[1]][text[2]] = int(text[0])
                     if int(text[0])<self.minCount:
                         self.minCount = int(text[0])
@@ -86,6 +88,8 @@ class BigramModel():
         return possibility
 
     def getScoreMat(self):
+        #0. Add space identifier
+#        langCompute.addSpaceChar()
         #1. Break sentence to words
         langCompute.sentToWords()
 
@@ -129,8 +133,12 @@ class TrigramModel():
                 self.computeMat[text]={}
             periodText = '.'+l
             revperiodText = l+'.'
+            commaText = '~'+l
+            revcommaText = l+'~'
             self.computeMat[periodText] = {}
             self.computeMat[revperiodText] = {}
+            self.computeMat[commaText] = {}
+            self.computeMat[revcommaText] = {}
 
     def getScoreMat(self):
         self.bigramStub.generate()

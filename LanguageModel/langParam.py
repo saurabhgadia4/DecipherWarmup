@@ -1,4 +1,8 @@
+CORPUS_ORIG  = "corpusOrig.en" 
 CORPUS_FILE  = "corpus.en"
+CORPUS_MINUS_SPACE = "corpus_minus_space.en"
+CORPUS_TEMP_WORDS = "StempW.txt"
+CORPUS_TEMP_WORDS_1 = "StempW1.txt"
 CORPUS_WORDS = "StoW.txt"
 CORPUS_CHARS = "WtoC.txt"
 CORP_SHIFT_1 = "CorpShift.txt"
@@ -19,7 +23,7 @@ BIGRAM_FILES = [CORPUS_WORDS, CORPUS_CHARS, CORP_SHIFT_1, BIGRAM_PAIR_TEMP,BIGRA
 TRIGRAM_FILES = [CORPUS_WORDS, CORPUS_CHARS, CORP_SHIFT_1, CORP_SHIFT_2, TRIGRAM_PAIR_TEMP, TRIGRAM_PAIR, TRIGRAM_STAT, BIGRAM_STAT]
 
 VALID_SENTENCE =[ 
-'thepanelisalsoexpectedtorecommendthatthewhitehouse',
+'the~panel~is~also~expected~to~recommend~that~the~whitehouse',
 'theiraniangovernmenthasmaintainedthatitknowsnothin',
 'bymatchingthelowestpriceandenhancingservicehewasde',
 'thisfallherneighborhoodinthenortheasternpartofthis',

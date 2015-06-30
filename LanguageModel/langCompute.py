@@ -1,6 +1,8 @@
 import os
 import logging
 import subprocess
+import shutil
+import sys
 from langParam import *
 from string import ascii_lowercase
 
@@ -16,17 +18,54 @@ def deleteFiles(path=None, files=[]):
     except Exception as e:
         logging.exception(e)
 
+def truncExpr(expr, inputfile, outputfile):
+    try:
+        command = "tr -s \'" + expr + " \' < " + inputfile + " > " + outputfile 
+        ret = subprocess.call(command, shell=True)
+        if(ret):
+            print "Error"
+            sys.exit(-1)
+        logging.info('successfully removed extra space chatacters')
+    
+    except Exception as e:
+        logging.exception(e)
+
+
+# def addSpaceChar():
+#     try: 
+#         if os.path.exists(CORPUS_FILE):
+#             os.remove(CORPUS_FILE)
+#         shutil.copy2(CORPUS_ORIG, CORPUS_FILE)
+#         truncExpr('\. ', CORPUS_FILE, CORPUS_MINUS_SPACE)
+#         command = "sed -i \'s/ /~*/g\' " +  CORPUS_MINUS_SPACE
+#         ret = subprocess.call(command, shell=True)
+#         if(ret):
+#             print "Error"
+#             sys.exit(-1)
+#         logging.info('successfully added space characters')
+    
+#     except Exception as e:
+#         logging.exception(e)
+
+
 def sentToWords():
 # #1. splitting file by words
     try:
-    
-        command = "tr -sc \'A-Za-z\.\' \'\012\' < " + CORPUS_FILE + ">" + CORPUS_WORDS
+        shutil.copy2(CORPUS_ORIG, CORPUS_FILE)
+        command = "tr -sc \'A-Za-z\.\' \'~\' < " + CORPUS_FILE + ">" + CORPUS_WORDS
         ret = subprocess.call(command, shell=True)
         if(ret):
             print "Error"
             sys.exit(-1)
         logging.info('successfully created word file')
-    
+        
+        command = "sed -i \'s/~/~\\n/g\' " +  CORPUS_WORDS
+        ret = subprocess.call(command, shell=True)
+        if(ret):
+            print "Error"
+            sys.exit(-1)
+        logging.info('successfully added space characters')
+
     except Exception as e:
         logging.exception(e)
 
@@ -98,6 +137,8 @@ def genCharCount():
             sys.exit(-1)
     startCountCmd = "grep "+ '\'\.\'' +" -o " + CORPUS_FILE + " | wc -l >> " + UNIGRAM_STAT    
     ret = subprocess.call(startCountCmd, shell=True)
+    startCountCmd = "grep "+ '\'~\'' +" -o " + CORPUS_FILE + " | wc -l >> " + UNIGRAM_STAT    
+    ret = subprocess.call(startCountCmd, shell=True)
     print 'successfully counted characters'
 
 def getCharCount():
@@ -109,6 +150,8 @@ def getCharCount():
                 totalCount[c] = int(text)
             text = fp.readline()
             totalCount['.'] = int(text)
+            text = fp.readline()
+            totalCount['~'] = int(text)
         except Exception as err:
             logging.exception(err)
         return totalCount
