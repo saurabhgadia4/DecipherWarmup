@@ -38,7 +38,7 @@ class BigramModel():
                 text = fp.readline()
                 text = text.lstrip()
                 text = text.split()
-                if text and not (text[1]==text[2]=='.') and not (text[1]==text[2]=='~'):
+                if text:
                     self.computeMat[text[1]][text[2]] = int(text[0])
                     if int(text[0])<self.minCount:
                         self.minCount = int(text[0])
@@ -127,6 +127,8 @@ class TrigramModel():
 
     def __initMatrix(self):
         self.computeMat['..'] = {}
+        self.computeMat['~.'] = {}
+        self.computeMat['.~'] = {}
         for l in ascii_lowercase:
             for m in ascii_lowercase:
                 text = l+m

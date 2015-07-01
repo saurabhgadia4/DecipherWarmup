@@ -1,8 +1,8 @@
 CORPUS_ORIG  = "corpusOrig.en" 
 CORPUS_FILE  = "corpus.en"
-CORPUS_MINUS_SPACE = "corpus_minus_space.en"
-CORPUS_TEMP_WORDS = "StempW.txt"
-CORPUS_TEMP_WORDS_1 = "StempW1.txt"
+# CORPUS_MINUS_SPACE = "corpus_minus_space.en"
+# CORPUS_TEMP_WORDS = "StempW.txt"
+# CORPUS_TEMP_WORDS_1 = "StempW1.txt"
 CORPUS_WORDS = "StoW.txt"
 CORPUS_CHARS = "WtoC.txt"
 CORP_SHIFT_1 = "CorpShift.txt"
@@ -24,19 +24,17 @@ TRIGRAM_FILES = [CORPUS_WORDS, CORPUS_CHARS, CORP_SHIFT_1, CORP_SHIFT_2, TRIGRAM
 
 VALID_SENTENCE =[ 
 'the~panel~is~also~expected~to~recommend~that~the~whitehouse',
-'theiraniangovernmenthasmaintainedthatitknowsnothin',
-'bymatchingthelowestpriceandenhancingservicehewasde',
-'thisfallherneighborhoodinthenortheasternpartofthis',
-'forcollegebasketballfansthisisasgoodaweekasyourego',
-'butaccordingtobarbershopproprietorsthenumberoffema',
-'anintriguingnewstudysuggeststhatwhatreallydrawspeo',
-'alsoonthursdaythelatestwinnersofthelifesciencesand',
-'whatmembersofbothpartiesbemoanedmorethananythingwa',
-'onekeyhurdleforteslainproducingthenewsmallercarwil']
+'the~iranian~government~has~maintained~that~it~knows~nothin',
+'by~matching~the~lowest~price~and~enhancing~service~he~was~de',
+'this~fall~her~neighborhood~in~the~northeastern~part~of~this',
+'for~college~basketball~fans~this~is~as~good~a~week~as~your~ego',
+'but~according~to~barber~shop~proprietors~the~number~of~fema',
+'anintriguing~new~study~suggests~thatwhat~really~draws~peo',
+'also~on~thursday~the~latest~winners~of~the~life~sciences~and',
+'what~members~of~both~parties~be~moaned~more~than~anything~wa',
+'one~key~hurdle~for~tesla~in~producing~the~new~smaller~car~wil']
 
 TEST_SENTENCE = [
-'incasetherewasstillanydoubtleftrowlingpostedatweet',
-'onmondaywithapromotionalimageforharrypotterandthec',
 'heeemirhcletshlohttwhsnpuesecetottipoenadeamtoaexd',
 'tnreaaahninsnootottnhiaihkvnnhimttwmtieadnrisegena',
 'raomnnaytihhgchawbsindcasveedreeipeeenngcethcltswi',

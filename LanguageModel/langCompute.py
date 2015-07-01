@@ -52,6 +52,7 @@ def sentToWords():
 # #1. splitting file by words
     try:
         shutil.copy2(CORPUS_ORIG, CORPUS_FILE)
+        #truncExpr('\.', CORPUS_FILE, CORPUS_MINUS_SPACE)
         command = "tr -sc \'A-Za-z\.\' \'~\' < " + CORPUS_FILE + ">" + CORPUS_WORDS
         ret = subprocess.call(command, shell=True)
         if(ret):
@@ -135,9 +136,9 @@ def genCharCount():
         if(ret):
             print "Error"
             sys.exit(-1)
-    startCountCmd = "grep "+ '\'\.\'' +" -o " + CORPUS_FILE + " | wc -l >> " + UNIGRAM_STAT    
+    startCountCmd = "grep "+ '\'\.\'' +" -o " + CORPUS_WORDS + " | wc -l >> " + UNIGRAM_STAT    
     ret = subprocess.call(startCountCmd, shell=True)
-    startCountCmd = "grep "+ '\'~\'' +" -o " + CORPUS_FILE + " | wc -l >> " + UNIGRAM_STAT    
+    startCountCmd = "grep "+ '\'~\'' +" -o " + CORPUS_WORDS + " | wc -l >> " + UNIGRAM_STAT    
     ret = subprocess.call(startCountCmd, shell=True)
     print 'successfully counted characters'
 
