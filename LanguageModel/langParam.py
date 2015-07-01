@@ -34,7 +34,7 @@ VALID_SPACE_SENTENCE =[
 'what~members~of~both~parties~be~moaned~more~than~anything~wa',
 'one~key~hurdle~for~tesla~in~producing~the~new~smaller~car~wil']
 
-VALID_SENTENCE =[ 
+VALID_SENTENCE =[ 'si',
 'thepanelisalsoexpectedtorecommendthatthewhitehouse',
 'theiraniangovernmenthasmaintainedthatitknowsnothin',
 'bymatchingthelowestpriceandenhancingservicehewasde',
