@@ -22,7 +22,7 @@ TRIGRAM_STAT = "TrigramStat.txt"
 BIGRAM_FILES = [CORPUS_WORDS, CORPUS_CHARS, CORP_SHIFT_1, BIGRAM_PAIR_TEMP,BIGRAM_PAIR, BIGRAM_STAT, UNIGRAM_STAT]
 TRIGRAM_FILES = [CORPUS_WORDS, CORPUS_CHARS, CORP_SHIFT_1, CORP_SHIFT_2, TRIGRAM_PAIR_TEMP, TRIGRAM_PAIR, TRIGRAM_STAT, BIGRAM_STAT]
 
-VALID_SENTENCE =[ 
+VALID_SPACE_SENTENCE =[ 
 'the~panel~is~also~expected~to~recommend~that~the~whitehouse',
 'the~iranian~government~has~maintained~that~it~knows~nothin',
 'by~matching~the~lowest~price~and~enhancing~service~he~was~de',
@@ -33,6 +33,18 @@ VALID_SENTENCE =[
 'also~on~thursday~the~latest~winners~of~the~life~sciences~and',
 'what~members~of~both~parties~be~moaned~more~than~anything~wa',
 'one~key~hurdle~for~tesla~in~producing~the~new~smaller~car~wil']
+
+VALID_SENTENCE =[ 
+'thepanelisalsoexpectedtorecommendthatthewhitehouse',
+'theiraniangovernmenthasmaintainedthatitknowsnothin',
+'bymatchingthelowestpriceandenhancingservicehewasde',
+'thisfallherneighborhoodinthenortheasternpartofthis',
+'forcollegebasketballfansthisisasgoodaweekasyourego',
+'butaccordingtobarbershopproprietorsthenumberoffema',
+'anintriguingnewstudysuggeststhatwhatreallydrawspeo',
+'alsoonthursdaythelatestwinnersofthelifesciencesand',
+'whatmembersofbothpartiesbemoanedmorethananythingwa',
+'onekeyhurdleforteslainproducingthenewsmallercarwil']
 
 TEST_SENTENCE = [
 'heeemirhcletshlohttwhsnpuesecetottipoenadeamtoaexd',

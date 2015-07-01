@@ -14,7 +14,6 @@ class UnigramModel():
     def __init__(self):
         self.totalCount = {}
 
-
 class BigramModel():
     def __init__(self):
         self.computeMat = {}
