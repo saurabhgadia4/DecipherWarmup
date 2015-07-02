@@ -14,4 +14,5 @@ class Driver():
 		return self.remcol.pop()
 
 	def genSequence(self):
+		pass
 
