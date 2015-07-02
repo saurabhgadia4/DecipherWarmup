@@ -3,31 +3,58 @@ import dcyParam
 import langModels
 
 class ProbMatrix():
-    bigramObject = langModels.BigramModel()
-    trigramObject = langModels.TrigramModel()
-    bigramMatrix = bigramObject.genScoreMatrix()
-    trigramMatrix = trigramObject.genScoreMatrix()
+    gramStub = {}
+    gramStub[BIGRAM_TYPE] = {}
+    gramStub[TRIGRAM_TYPE] = {}
+    gramStub[BIGRAM_TYPE]['obj'] = langModels.BigramModel()
+    gramStub[BIGRAM_TYPE]['mat'] = gramStub[BIGRAM_TYPE]['obj'].genScoreMatrix()
+    gramStub[TRIGRAM_TYPE]['obj'] = langModels.TrigramModel()
+    gramStub[TRIGRAM_TYPE]['mat'] = gramStub[TRIGRAM_TYPE]['obj'].genScoreMatrix()
 
     @classmethod
     def getPossibility(cls, prefix, current, gramtype):
-        
+        try:
+            condCount = cls.gramStub[gramtype]['mat'][prefix][current]
+            if gramtype == BIGRAM_TYPE:
+                prefixCount = cls.gramStub[BIGRAM_TYPE]['obj'].totalCount[prefix] 
+            elif gramtype == TRIGRAM_TYPE:
+                biprefix = prefix[0]
+                bicurrent = prefix[1]
+                prefixCount = cls.gramStub[BIGRAM_TYPE]['mat'][biprefix][bicurrent]
+            possibility = possibility*(float(condCount)/prefixCount)
+
+        except KeyError:
+            condCount = cls.gramStub[gramtype]['mat'][prefix][current] = cls.gramStub[gramtype]['obj'].minCount
+            if gramtype == BIGRAM_TYPE:
+                prefixCount = cls.gramStub[BIGRAM_TYPE]['obj'].totalCount[prefix] 
+            elif gramtype == TRIGRAM_TYPE:
+                biprefix = prefix[0]
+                bicurrent = prefix[1]
+                prefixCount = cls.gramStub[BIGRAM_TYPE]['mat'][biprefix][bicurrent]
+            possibility = possibility*(float(condCount)/prefixCount)
+
+        return possibility
 
 class RowInput():
     def __init__(self, input):
         self.__elem = list(input)
-        self.ctop = {}
-        self.__fillctop()
+        self.__ctop = {}
+        self.__fill__ctop()
 
     def getElement(self, position):
         return self.__elem[position]
 
-    def __fillctop(self):
+    def __fill__ctop(self):
         for i in range(len(self.__elem)):
             try:
-                self.ctop[self.__elem[i]].append(i)
+                self.__ctop[self.__elem[i]].append(i)
             except KeyError:
-                self.ctop[self.__elem[i]] = []
-                self.ctop[self.__elem[i]].append(i)
+                self.__ctop[self.__elem[i]] = []
+                self.__ctop[self.__elem[i]].append(i)
+
+    def __rm_ctop(self, position):
+        element = self.__elem[position]
+        self.__ctop[element].remove(position)
 
     def getPrefix(self, nextpos, type):
         prefix = ""
@@ -35,51 +62,22 @@ class RowInput():
             prefix+=self.__elem[i]
         return prefix
 
+    def __floodProbList(self, element, prob, probList):
+        if self.__ctop.get(element, None):
+            for pos in self.__ctop[element]:
+                probList[pos] = prob
+
     def getRemProb(self, prefix, posList, gramtype):
         probList = []
         for i in range(50):
             probList.append(0)
-        if gramtype == BIGRAM_TYPE:
-            gramobj = ProbMatrix.bigramObject
-            grammat = ProbMatrix.bigramMatrix
-        elif gramtype == TRIGRAM_TYPE:
-            gramobj =  ProbMatrix.trigramObject
-            grammat = ProbMatrix.trigramMatrix
-
+        
         for pos in posList:
             if not probList[pos]:
                 element = self.__elem[pos]
+                prob = ProbMatrix.getPossibility(prefix, element, gramtype)
+                self.__floodProbList(element, prob, probList)
 
-
-                
-                condCount = grammat[prefix][element]
-                prefixCount = self.totalCount[prefix]
-                possibility = possibility*(float(condCount)/prefixCount)
-                #print 'p(%r|%r)'%(current,prefix),'--> condCount: ',condCount, ' prefixCount: ', prefixCount, ' =', possibility 
-            except KeyError:
-                if gramtype == BIGRAM_TYPE:
-                    pass
-                elif gramtype == TRIGRAM_TYPE:
-                    pass
-
-
-
-                condCount = self.computeMat[prefix][current] = self.minCount
-                prefixCount = self.totalCount[prefix]
-                possibility = possibility*(float(condCount)/prefixCount)
-
-
-            except KeyError:
-                biPrefix = row[i-1]
-                biCurrent = row[i]
-                condCount = self.computeMat[triPrefix][triCurrent] = self.minCount
-                prefixCount = self.bigramStub.computeMat[biPrefix][biCurrent]
-                possibility = possibility*(float(condCount)/prefixCount)
-
-
-
-
-
-
-
+    def removeCol(self, columnIdx):
+        self.__rm_ctop(columnIdx)
 
