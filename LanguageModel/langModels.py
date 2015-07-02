@@ -4,7 +4,7 @@ import sys
 import os
 import subprocess
 from string import ascii_lowercase
-import langParam
+from DecipherWarmup import langParam
 import langCompute
 import logging
 import statistics
@@ -13,6 +13,7 @@ import statistics
 class UnigramModel():
     def __init__(self):
         self.totalCount = {}
+
 
 class BigramModel():
     def __init__(self):
@@ -23,8 +24,6 @@ class BigramModel():
 
     def __initMatrix(self):
         self.computeMat['.'] = {}
-        self.computeMat['~'] = {}
-
         for l in ascii_lowercase:
             self.computeMat[l] = {}
 
@@ -59,13 +58,11 @@ class BigramModel():
         for row in text:
             row = '.' + row
             rowPoss.append(self.__calCond(row))
-
+        print '\n\n--------------New Record----------------'
         print 'rowPoss',rowPoss
         print 'max', max(rowPoss)
         print 'min', min(rowPoss)
         print 'avg', statistics.mean(rowPoss)
-        print 'variance', statistics.variance(rowPoss)
-        print 'stdev', statistics.stdev(rowPoss)
 
     def __calCond(self, row):
         possibility =1
@@ -87,8 +84,6 @@ class BigramModel():
         return possibility
 
     def getScoreMat(self):
-        #0. Add space identifier
-#        langCompute.addSpaceChar()
         #1. Break sentence to words
         langCompute.sentToWords()
 
@@ -126,20 +121,14 @@ class TrigramModel():
 
     def __initMatrix(self):
         self.computeMat['..'] = {}
-        self.computeMat['~.'] = {}
-        self.computeMat['.~'] = {}
         for l in ascii_lowercase:
             for m in ascii_lowercase:
                 text = l+m
                 self.computeMat[text]={}
             periodText = '.'+l
             revperiodText = l+'.'
-            commaText = '~'+l
-            revcommaText = l+'~'
             self.computeMat[periodText] = {}
             self.computeMat[revperiodText] = {}
-            self.computeMat[commaText] = {}
-            self.computeMat[revcommaText] = {}
 
     def getScoreMat(self):
         self.bigramStub.generate()
@@ -176,6 +165,7 @@ class TrigramModel():
 
     def getScore(self):
         try:
+            print '..........................TRIGRAM STATS.............................'
             self.__trigram(langParam.VALID_SENTENCE)
             self.__trigram(langParam.TEST_SENTENCE)
             self.__trigram(langParam.NEW_TEST)
@@ -189,12 +179,11 @@ class TrigramModel():
             row = '.' + row
             rowPoss.append(self.__calCond(row))
 
+        print '\n\n--------------New Record----------------'
         print 'rowPoss',rowPoss
         print 'max', max(rowPoss)
         print 'min', min(rowPoss)
         print 'avg', statistics.mean(rowPoss)
-        print 'variance', statistics.variance(rowPoss)
-        print 'stdev', statistics.stdev(rowPoss)
 
     def __calCond(self, row):
         possibility =1
