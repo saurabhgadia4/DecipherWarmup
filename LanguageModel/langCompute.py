@@ -3,7 +3,7 @@ import logging
 import subprocess
 import sys
 import shutil
-from langParam import *
+from dcyParam import * 
 from string import ascii_lowercase
 
 def deleteFiles(path=None, files=[]):
