@@ -1,20 +1,25 @@
 import os
 import sets
 import langInput
+from dcyParam import *
+
 class Driver():
     def __init__(self, cipher):
-        self.remcol = sets.Set()
-        self.rowobj = []
-        self.cipher = cipher
-        self.rowCount = len(cipher)
-        self.__sequence = []
         self.rowlen = 50
+        self.cipher = cipher
+        self.__sequence = []
+        self.rowCount = len(cipher)
+        self.remcol = sets.Set()
+        self.__initRemSet()
+        self.rowobj = []
+        self.__fillRowObj()
 
     def __initRemSet(self):
         for i in range(self.rowlen):
             self.remcol.add(i) 
 
     def __chooseIdx(self, matrix):
+        #print 'matrix', matrix
         problist = []
         for i in range(50):
             problist.append(0)
@@ -26,21 +31,16 @@ class Driver():
         return self.__getMaxIdx(problist)
 
     def __getMaxIdx(self, problist):
+        #print 'problist: ', problist
+        #print 'max in list: ',max(problist)
         maxval = 0
-        idx = -1
+        index = -1
         for idx in range(len(problist)):
             if problist[idx] > maxval:
                 maxval = problist[idx]
-                idx = idx
-        return idx
-
-    def genSequence(self, startIdx):
-        self.getFirstIndex(startIdx)
-        remlen = len(self.remcol)
-        while remlen:
-            idx = getNextIdx(TRIGRAM_TYPE)
-            self.updateRem(idx)
-            remlen = len(self.remcol)
+                index = idx
+        #print 'my max: ',maxval
+        return index
 
     def getPrefixList(self, gramtype):
         pfxlist = []
@@ -50,34 +50,43 @@ class Driver():
         return pfxlist
 
     def updateRem(self, index):
+        print 'next selected index', index
         self.__sequence.append(index)
-        self.remcol.remove(idx)
+        self.remcol.remove(index)
+
+    def genSequence(self, startIdx):
+        self.getFirstIndex(startIdx)
+        remlen = len(self.remcol)
+        while remlen:
+            idx = self.getNextIdx(TRIGRAM_TYPE)
+            self.updateRem(idx)
+            remlen = len(self.remcol)
 
     def getFirstIndex(self, index):
-        self.remcol.remove(index)
-        self.__sequence.append(index)
-        idx = getNextIdx(BIGRAM_TYPE)
+        self.updateRem(index)
+        idx = self.getNextIdx(BIGRAM_TYPE)
         self.updateRem(idx)
 
     def getNextIdx(self, gramtype):
         probmat = []
-        pfxlist = getPrefixList(gramtype)
+        pfxlist = self.getPrefixList(gramtype)
         for i in range(self.rowCount):
             probmat.append(self.rowobj[i].getRemProb(pfxlist, self.remcol, gramtype))
         idx = self.__chooseIdx(probmat)
         return idx
 
-    def fillRowObj(self):
+    def __fillRowObj(self):
         for row in self.cipher:
             self.rowobj.append(langInput.RowInput(row))
 
     def decipher(self, startIdx):
         decipherText = []
-        for rownum in self.rowCount:
+        for rownum in range(self.rowCount):
             decipherText.append("")
         self.genSequence(startIdx)
         for idx in self.__sequence:
-            for rownum in self.rowCount:
+            for rownum in range(self.rowCount):
                 seq = decipherText[rownum]
-                seq+=cipher[rownum][idx]
+                seq+=self.cipher[rownum][idx]
                 decipherText[rownum] = seq
+        return self.__sequence, decipherText

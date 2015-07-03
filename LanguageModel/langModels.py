@@ -100,17 +100,20 @@ class BigramModel():
         #6. Calculating bigram count
         langCompute.calPairCount(dcyParam.BIGRAM_PAIR, dcyParam.BIGRAM_STAT)  
         
+        #generating total count
+        self.totalCount = langCompute.getCharCount()
         #7. generate score matrix
-        self.genScoreMatrix()
+
+        return self.genScoreMatrix()
 
     def generate(self):
         self.getScoreMat()
         #8. generate unigram score
         langCompute.genCharCount()
         #9. 
-        self.totalCount = langCompute.getCharCount()
+        
         #10 get the score
-        self.getScore()
+        #self.getScore()
         #langCompute.deleteFiles(files=dcyParam.BIGRAM_FILES)
 
 class TrigramModel():
@@ -143,8 +146,8 @@ class TrigramModel():
         #6. Calculating bigram count
         langCompute.calPairCount(dcyParam.TRIGRAM_PAIR, dcyParam.TRIGRAM_STAT)  
 
-        self.genScoreMatrix()
-        self.getScore()
+        return self.genScoreMatrix()
+        #self.getScore()
 
     def genScoreMatrix(self):
         #7. Extracting count for generating scoring matrix

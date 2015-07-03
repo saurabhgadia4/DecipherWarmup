@@ -1,19 +1,22 @@
 import os
 import dcyParam
 import langModels
+from dcyParam import *
 
 class ProbMatrix():
     gramStub = {}
     gramStub[BIGRAM_TYPE] = {}
     gramStub[TRIGRAM_TYPE] = {}
     gramStub[BIGRAM_TYPE]['obj'] = langModels.BigramModel()
-    gramStub[BIGRAM_TYPE]['mat'] = gramStub[BIGRAM_TYPE]['obj'].genScoreMatrix()
+    gramStub[BIGRAM_TYPE]['mat'] = gramStub[BIGRAM_TYPE]['obj'].getScoreMat()
     gramStub[TRIGRAM_TYPE]['obj'] = langModels.TrigramModel()
-    gramStub[TRIGRAM_TYPE]['mat'] = gramStub[TRIGRAM_TYPE]['obj'].genScoreMatrix()
+    gramStub[TRIGRAM_TYPE]['mat'] = gramStub[TRIGRAM_TYPE]['obj'].getScoreMat()
+
 
     @classmethod
     def getPossibility(cls, prefix, current, gramtype):
         try:
+            possibility = 1
             condCount = cls.gramStub[gramtype]['mat'][prefix][current]
             if gramtype == BIGRAM_TYPE:
                 prefixCount = cls.gramStub[BIGRAM_TYPE]['obj'].totalCount[prefix] 
@@ -30,6 +33,8 @@ class ProbMatrix():
             elif gramtype == TRIGRAM_TYPE:
                 biprefix = prefix[0]
                 bicurrent = prefix[1]
+                # print 'biprefix',biprefix
+                # print 'bicurrent',bicurrent
                 prefixCount = cls.gramStub[BIGRAM_TYPE]['mat'][biprefix][bicurrent]
             possibility = possibility*(float(condCount)/prefixCount)
 
@@ -56,12 +61,6 @@ class RowInput():
         element = self.__elem[position]
         self.__ctop[element].remove(position)
 
-    # def getPrefix(self, nextpos, type):
-    #     prefix = ""
-    #     for i in range(nextpos-type, nextpos):
-    #         prefix+=self.__elem[i]
-    #     return prefix
-
     def getPrefix(self, pfxlist):
         prefix = ""
         for idx in pfxlist:
@@ -75,7 +74,7 @@ class RowInput():
 
     def getRemProb(self, pfxIdxList, posList, gramtype):
         probList = []
-        prefix = getPrefix(pfxIdxList)
+        prefix = self.getPrefix(pfxIdxList)
         for i in range(50):
             probList.append(0)
         
