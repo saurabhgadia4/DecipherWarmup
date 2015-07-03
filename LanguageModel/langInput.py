@@ -56,10 +56,16 @@ class RowInput():
         element = self.__elem[position]
         self.__ctop[element].remove(position)
 
-    def getPrefix(self, nextpos, type):
+    # def getPrefix(self, nextpos, type):
+    #     prefix = ""
+    #     for i in range(nextpos-type, nextpos):
+    #         prefix+=self.__elem[i]
+    #     return prefix
+
+    def getPrefix(self, pfxlist):
         prefix = ""
-        for i in range(nextpos-type, nextpos):
-            prefix+=self.__elem[i]
+        for idx in pfxlist:
+            prefix+=self.__elem[idx]
         return prefix
 
     def __floodProbList(self, element, prob, probList):
@@ -67,8 +73,9 @@ class RowInput():
             for pos in self.__ctop[element]:
                 probList[pos] = prob
 
-    def getRemProb(self, prefix, posList, gramtype):
+    def getRemProb(self, pfxIdxList, posList, gramtype):
         probList = []
+        prefix = getPrefix(pfxIdxList)
         for i in range(50):
             probList.append(0)
         
@@ -77,6 +84,7 @@ class RowInput():
                 element = self.__elem[pos]
                 prob = ProbMatrix.getPossibility(prefix, element, gramtype)
                 self.__floodProbList(element, prob, probList)
+        return probList
 
     def removeCol(self, columnIdx):
         self.__rm_ctop(columnIdx)
