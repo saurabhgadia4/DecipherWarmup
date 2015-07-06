@@ -1,6 +1,7 @@
 import os
 import dcyParam
 import langModels
+import langSmooth
 from dcyParam import *
 
 class ProbMatrix():
@@ -11,9 +12,10 @@ class ProbMatrix():
     gramStub[BIGRAM_TYPE]['mat'] = gramStub[BIGRAM_TYPE]['obj'].getScoreMat()
     gramStub[TRIGRAM_TYPE]['obj'] = langModels.TrigramModel()
     gramStub[TRIGRAM_TYPE]['mat'] = gramStub[TRIGRAM_TYPE]['obj'].getScoreMat()
+    smoothHndl = langSmooth.LinearInt(gramStub[TRIGRAM_TYPE]['mat'], gramStub[BIGRAM_TYPE]['mat'], gramStub[BIGRAM_TYPE]['obj'].totalCount, gramStub[BIGRAM_TYPE]['obj'].total)
 
 
-    @classmethod
+    '''@classmethod
     def getPossibility(cls, prefix, current, gramtype):
         try:
             possibility = 1
@@ -27,17 +29,31 @@ class ProbMatrix():
             possibility = possibility*(float(condCount)/prefixCount)
 
         except KeyError:
-            condCount = cls.gramStub[gramtype]['mat'][prefix][current] = cls.gramStub[gramtype]['obj'].minCount
-            if gramtype == BIGRAM_TYPE:
-                prefixCount = cls.gramStub[BIGRAM_TYPE]['obj'].totalCount[prefix] 
-            elif gramtype == TRIGRAM_TYPE:
-                biprefix = prefix[0]
-                bicurrent = prefix[1]
-                # print 'biprefix',biprefix
-                # print 'bicurrent',bicurrent
-                prefixCount = cls.gramStub[BIGRAM_TYPE]['mat'][biprefix][bicurrent]
-            possibility = possibility*(float(condCount)/prefixCount)
+            try:
+                condCount = cls.gramStub[gramtype]['mat'][prefix][current] = cls.gramStub[gramtype]['obj'].minCount
+                if gramtype == BIGRAM_TYPE:
+                    prefixCount = cls.gramStub[BIGRAM_TYPE]['obj'].totalCount[prefix] 
+                elif gramtype == TRIGRAM_TYPE:
+                    biprefix = prefix[0]
+                    bicurrent = prefix[1]
+                    # print 'biprefix',biprefix
+                    # print 'bicurrent',bicurrent
+                    prefixCount = cls.gramStub[BIGRAM_TYPE]['mat'][biprefix][bicurrent]
+                possibility = possibility*(float(condCount)/prefixCount)
+            except Exception:
+                return 1
 
+        return possibility '''
+    @classmethod
+    def getPossibility(cls, prefix, current, gramtype):
+        possibility = 1
+        try:
+            if gramtype == BIGRAM_TYPE:
+                possibility = cls.smoothHndl.biSmooth(prefix, current)
+            elif gramtype == TRIGRAM_TYPE:
+                possibility = cls.smoothHndl.triSmooth(prefix, current)
+        except Exception as e:
+            print 'Exception in calculating possiblility: ', e
         return possibility
 
 class RowInput():

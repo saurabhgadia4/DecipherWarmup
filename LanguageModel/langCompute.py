@@ -115,16 +115,18 @@ def genCharCount():
 
 def getCharCount():
         totalCount = {}
+        total = 0
         try:
             fp = open(UNIGRAM_STAT, "r")
             for c in ascii_lowercase:
                 text = fp.readline()
                 totalCount[c] = int(text)
+                total+=totalCount[c]
             text = fp.readline()
             totalCount['.'] = int(text)
         except Exception as err:
             logging.exception(err)
-        return totalCount
+        return totalCount, total
 
 def removeLastLines(nlines, inputfile, outputfile):
         #6 removing lone '.' count

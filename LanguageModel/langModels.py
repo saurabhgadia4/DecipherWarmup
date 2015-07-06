@@ -13,14 +13,17 @@ import statistics
 class UnigramModel():
     def __init__(self):
         self.totalCount = {}
+        self.total = 0
 
+    def genUniStat(self):
+        self.totalCount, self.total = langCompute.getCharCount()
 
-class BigramModel():
+class BigramModel(UnigramModel):
     def __init__(self):
+        UnigramModel.__init__(self)
         self.computeMat = {}
         self.__initMatrix()
         self.minCount = 999999
-        self.totalCount = None
 
     def __initMatrix(self):
         self.computeMat['.'] = {}
@@ -45,11 +48,12 @@ class BigramModel():
             logging.exception(err)
         return self.computeMat
 
-    def getScore(self):
+    def getScore(self, text):
         try:
-            self.__bigram(dcyParam.VALID_SENTENCE)
-            self.__bigram(dcyParam.TEST_SENTENCE)
-            self.__bigram(dcyParam.NEW_TEST)
+            # self.__bigram(dcyParam.VALID_SENTENCE)
+            # self.__bigram(dcyParam.TEST_SENTENCE)
+            # self.__bigram(dcyParam.NEW_TEST)
+            self.__bigram(text)
         except Exception as e:
             logging.exception(e)
 
@@ -98,10 +102,12 @@ class BigramModel():
         #5 Clean bigram stats
         langCompute.removeLastLines(1, dcyParam.BIGRAM_PAIR_TEMP, dcyParam.BIGRAM_PAIR)
         #6. Calculating bigram count
-        langCompute.calPairCount(dcyParam.BIGRAM_PAIR, dcyParam.BIGRAM_STAT)  
+        langCompute.calPairCount(dcyParam.BIGRAM_PAIR, dcyParam.BIGRAM_STAT) 
+        #7 Generate unigram stat
+        langCompute.genCharCount() 
         
         #generating total count
-        self.totalCount = langCompute.getCharCount()
+        self.genUniStat()
         #7. generate score matrix
 
         return self.genScoreMatrix()
@@ -109,7 +115,7 @@ class BigramModel():
     def generate(self):
         self.getScoreMat()
         #8. generate unigram score
-        langCompute.genCharCount()
+#        langCompute.genCharCount()
         #9. 
         
         #10 get the score
@@ -168,12 +174,13 @@ class TrigramModel():
             logging.exception(err)
         return self.computeMat
 
-    def getScore(self):
+    def getScore(self, text):
         try:
             print '..........................TRIGRAM STATS.............................'
-            self.__trigram(dcyParam.VALID_SENTENCE)
-            self.__trigram(dcyParam.TEST_SENTENCE)
-            self.__trigram(dcyParam.NEW_TEST)
+            # self.__trigram(dcyParam.VALID_SENTENCE)
+            # self.__trigram(dcyParam.TEST_SENTENCE)
+            # self.__trigram(dcyParam.NEW_TEST)
+            self.__trigram(text)
         except Exception as e:
             logging.exception(e)
 

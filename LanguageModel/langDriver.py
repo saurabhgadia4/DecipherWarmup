@@ -50,7 +50,7 @@ class Driver():
         return pfxlist
 
     def updateRem(self, index):
-        print 'next selected index', index
+        #print 'next selected index', index
         self.__sequence.append(index)
         self.remcol.remove(index)
 
@@ -89,4 +89,7 @@ class Driver():
                 seq = decipherText[rownum]
                 seq+=self.cipher[rownum][idx]
                 decipherText[rownum] = seq
+        print 'score of decipher text: '
+        langInput.ProbMatrix.gramStub[BIGRAM_TYPE]['obj'].getScore(decipherText)
+        langInput.ProbMatrix.gramStub[TRIGRAM_TYPE]['obj'].getScore(decipherText)
         return self.__sequence, decipherText

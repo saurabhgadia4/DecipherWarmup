@@ -1,0 +1,82 @@
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+driverobj	__init__.py	/^	driverobj = langDriver.Driver(dcyParam.TEST_SENTENCE)$/;"	v
+BIGRAM_FILES	dcyParam.py	/^BIGRAM_FILES = [CORPUS_WORDS, CORPUS_CHARS, CORP_SHIFT_1, BIGRAM_PAIR_TEMP, BIGRAM_PAIR, BIGRAM_STAT, UNIGRAM_STAT]$/;"	v
+BIGRAM_PAIR	dcyParam.py	/^BIGRAM_PAIR  = "BigramPair.txt"$/;"	v
+BIGRAM_PAIR_TEMP	dcyParam.py	/^BIGRAM_PAIR_TEMP = "BPairTemp.txt"$/;"	v
+BIGRAM_STAT	dcyParam.py	/^BIGRAM_STAT  = "BigramStat.txt"$/;"	v
+BIGRAM_TYPE	dcyParam.py	/^BIGRAM_TYPE = 1$/;"	v
+CORPUS_CHARS	dcyParam.py	/^CORPUS_CHARS = "WtoC.txt"$/;"	v
+CORPUS_CLEAN	dcyParam.py	/^CORPUS_CLEAN = "corpus_clean.en"$/;"	v
+CORPUS_FILE	dcyParam.py	/^CORPUS_FILE  = "corpus.en"$/;"	v
+CORPUS_WORDS	dcyParam.py	/^CORPUS_WORDS = "StoW.txt"$/;"	v
+CORP_SHIFT_1	dcyParam.py	/^CORP_SHIFT_1 = "CorpShift.txt"$/;"	v
+CORP_SHIFT_2	dcyParam.py	/^CORP_SHIFT_2 = "CorpShift_2.txt"$/;"	v
+NEW_TEST	dcyParam.py	/^NEW_TEST = [$/;"	v
+TEST_SENTENCE	dcyParam.py	/^TEST_SENTENCE = [$/;"	v
+TRIGRAM_FILES	dcyParam.py	/^TRIGRAM_FILES = [CORPUS_WORDS, CORPUS_CHARS, CORP_SHIFT_1, CORP_SHIFT_2, TRIGRAM_PAIR_TEMP, TRIGRAM_PAIR, TRIGRAM_STAT, BIGRAM_STAT]$/;"	v
+TRIGRAM_PAIR	dcyParam.py	/^TRIGRAM_PAIR = "TrigramPair.txt"$/;"	v
+TRIGRAM_PAIR_TEMP	dcyParam.py	/^TRIGRAM_PAIR_TEMP = "TriPairTemp.txt"$/;"	v
+TRIGRAM_STAT	dcyParam.py	/^TRIGRAM_STAT = "TrigramStat.txt" $/;"	v
+TRIGRAM_TYPE	dcyParam.py	/^TRIGRAM_TYPE = 2$/;"	v
+UNIGRAM_STAT	dcyParam.py	/^UNIGRAM_STAT = "UnigramStat.txt"$/;"	v
+VALID_SENTENCE	dcyParam.py	/^VALID_SENTENCE =[ $/;"	v
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+calPairCount	langCompute.py	/^def calPairCount(inputfile, outputfile):$/;"	f
+cleanStats	langCompute.py	/^def cleanStats():$/;"	f
+deleteFiles	langCompute.py	/^def deleteFiles(path=None, files=[]):$/;"	f
+formPairs	langCompute.py	/^def formPairs(output, *args):$/;"	f
+genCharCount	langCompute.py	/^def genCharCount():$/;"	f
+getCharCount	langCompute.py	/^def getCharCount():$/;"	f
+removeLastLines	langCompute.py	/^def removeLastLines(nlines, inputfile, outputfile):$/;"	f
+sentToWords	langCompute.py	/^def sentToWords():$/;"	f
+shiftSequence	langCompute.py	/^def shiftSequence(nchar, filename):$/;"	f
+truncExpr	langCompute.py	/^def truncExpr(expr, inputfile, outputfile):$/;"	f
+wordsToChar	langCompute.py	/^def wordsToChar():$/;"	f
+Driver	langDriver.py	/^class Driver():$/;"	c
+__chooseIdx	langDriver.py	/^    def __chooseIdx(self, matrix):$/;"	m	class:Driver	file:
+__fillRowObj	langDriver.py	/^    def __fillRowObj(self):$/;"	m	class:Driver	file:
+__getMaxIdx	langDriver.py	/^    def __getMaxIdx(self, problist):$/;"	m	class:Driver	file:
+__initRemSet	langDriver.py	/^    def __initRemSet(self):$/;"	m	class:Driver	file:
+__init__	langDriver.py	/^    def __init__(self, cipher):$/;"	m	class:Driver
+decipher	langDriver.py	/^    def decipher(self, startIdx):$/;"	m	class:Driver
+genSequence	langDriver.py	/^    def genSequence(self, startIdx):$/;"	m	class:Driver
+getFirstIndex	langDriver.py	/^    def getFirstIndex(self, index):$/;"	m	class:Driver
+getNextIdx	langDriver.py	/^    def getNextIdx(self, gramtype):$/;"	m	class:Driver
+getPrefixList	langDriver.py	/^    def getPrefixList(self, gramtype):$/;"	m	class:Driver
+updateRem	langDriver.py	/^    def updateRem(self, index):$/;"	m	class:Driver
+ProbMatrix	langInput.py	/^class ProbMatrix():$/;"	c
+RowInput	langInput.py	/^class RowInput():$/;"	c
+__fill__ctop	langInput.py	/^    def __fill__ctop(self):$/;"	m	class:RowInput	file:
+__floodProbList	langInput.py	/^    def __floodProbList(self, element, prob, probList):$/;"	m	class:RowInput	file:
+__init__	langInput.py	/^    def __init__(self, input):$/;"	m	class:RowInput
+__rm_ctop	langInput.py	/^    def __rm_ctop(self, position):$/;"	m	class:RowInput	file:
+getElement	langInput.py	/^    def getElement(self, position):$/;"	m	class:RowInput
+getPossibility	langInput.py	/^    def getPossibility(cls, prefix, current, gramtype):$/;"	m	class:ProbMatrix
+getPrefix	langInput.py	/^    def getPrefix(self, pfxlist):$/;"	m	class:RowInput
+getRemProb	langInput.py	/^    def getRemProb(self, pfxIdxList, posList, gramtype):$/;"	m	class:RowInput
+gramStub	langInput.py	/^    gramStub = {}$/;"	v	class:ProbMatrix
+removeCol	langInput.py	/^    def removeCol(self, columnIdx):$/;"	m	class:RowInput
+BigramModel	langModels.py	/^class BigramModel():$/;"	c
+TrigramModel	langModels.py	/^class TrigramModel():$/;"	c
+UnigramModel	langModels.py	/^class UnigramModel():$/;"	c
+__bigram	langModels.py	/^    def __bigram(self, text):$/;"	m	class:BigramModel	file:
+__calCond	langModels.py	/^    def __calCond(self, row):$/;"	m	class:BigramModel	file:
+__calCond	langModels.py	/^    def __calCond(self, row):$/;"	m	class:TrigramModel	file:
+__initMatrix	langModels.py	/^    def __initMatrix(self):$/;"	m	class:BigramModel	file:
+__initMatrix	langModels.py	/^    def __initMatrix(self):$/;"	m	class:TrigramModel	file:
+__init__	langModels.py	/^    def __init__(self):$/;"	m	class:BigramModel
+__init__	langModels.py	/^    def __init__(self):$/;"	m	class:TrigramModel
+__init__	langModels.py	/^    def __init__(self):$/;"	m	class:UnigramModel
+__trigram	langModels.py	/^    def __trigram(self, text):$/;"	m	class:TrigramModel	file:
+genScoreMatrix	langModels.py	/^    def genScoreMatrix(self):$/;"	m	class:BigramModel
+genScoreMatrix	langModels.py	/^    def genScoreMatrix(self):$/;"	m	class:TrigramModel
+generate	langModels.py	/^    def generate(self):$/;"	m	class:BigramModel
+generate	langModels.py	/^    def generate(self):$/;"	m	class:TrigramModel
+getScore	langModels.py	/^    def getScore(self, text):$/;"	m	class:BigramModel
+getScore	langModels.py	/^    def getScore(self, text):$/;"	m	class:TrigramModel
+getScoreMat	langModels.py	/^    def getScoreMat(self):$/;"	m	class:BigramModel
+getScoreMat	langModels.py	/^    def getScoreMat(self):$/;"	m	class:TrigramModel
