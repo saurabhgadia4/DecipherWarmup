@@ -1,0 +1,42 @@
+49
+1.7460221381142782e-58   6.311437839479263e-57 
+2.5507922507043377e-53   1.7802105253130802e-62 <-----> 
+2.1803256282587536e-56   2.1782662974212897e-54
+1.2157339299745588e-58   1.6980323677296985e-61 <----->
+8.190019180349167e-56    9.365755802558872e-57  <----->
+3.429455915771604e-58    6.938311937199859e-48
+4.7965201186733016e-60   3.873761926825201e-61  <----->
+3.8686634132865626e-60   9.995316569081713e-58
+9.748779735775214e-52    2.4907818039288046e-56 <----->
+3.562713399507983e-58    3.7909987570717757e-54
+
+
+
+
+49: {'text': [
+'t h e saidt o ke r to the e e e m u s tbes om e e h ej of f th i t o a y th u wr r', 
+'i t r elief i ne s sm ent o d u c h c onfu si o n b us ar e te y h g i c to n no m', 
+'w n e ofthe o ng t he lin i o n e p l owme nd w o m al ew h rk n e t m y my a gn i', 
+'y o t excit h et h ie fhe n d f i t i swor th y g e dt al t oi n k n r e an s oe o', 
+'j o u swhof t ha t li fei a t e t h e rear em o n e el ea m eb u s a y h sp r ng k', 
+'o g h atand s is n ot our b e o u a n diwe ve t h t hi ts u ra t f o e n bu h et y', 
+'g h o urisg i ng l at eal l o s n o t talk fa t e e tt yn t oa l l w e l le n sh u', 
+'m t e vieww e al l th ewo r c a t c h towe rp e t h il ea p ke n m e n c th s ih w', 
+'l t o utsid t he d is tan t w e n t b aref oo d o e in vi s ne a c t e r an a so w', 
+'h e p roach t he w in dbe r t i d g r owlt wo t a i ng ro r wa n g e d e ca s ip d'
+
+], 'sum': -1297.8985694046626, 'score': [1.7460221381142782e-58, 2.5507922507043377e-53, 2.1803256282587536e-56, 1.2157339299745588e-58, 8.190019180349167e-56, 3.429455915771604e-58, 4.7965201186733016e-60, 3.8686634132865626e-60, 9.748779735775214e-52, 3.562713399507983e-58], 'seq': [49, 16, 19, 20, 21, 22, 23, 24, 12, 9, 10, 11, 3, 4, 5, 6, 7, 36, 8, 46, 27, 28, 29, 30, 31, 32, 33, 34, 35, 2, 17, 13, 14, 15, 38, 43, 42, 40, 25, 26, 47, 41, 44, 45, 0, 1, 39, 37, 18, 48]}}
+
+
+{0: {'text': ['thetotheeekerohejheresaidthimustbesomoutoffayetwrt', 'toosmentodnesibustnoreliefeychconfusiantgericuhnmi', 'mywheliniongtomalnoneofthekneplowmendearthwmynegiw', 'anyiefhendethhedtogetexcitinitisworthasontlrefkooy', 'spolifeiathatteelonguswhofbutherearemereamayhesnkj', 'butotourbeisnsthighthatandatuandiwevethrousenofeyo', 'letateallonglietthehourisgalnottalkfaynowtnelslsug', 'thetheworcallehilttheviewwentchtowerpeskepancamiwm', 'andistantwhedteintoooutsideantbarefoovantsierecswl', 'catindberthewtingeapproachandgrowltworswerodeigidh'], 'sum': -1294.0655507968809, 'score': [6.311437839479263e-57, 1.7802105253130802e-62, 2.1782662974212897e-54, 1.6980323677296985e-61, 9.365755802558872e-57, 6.938311937199859e-48, 3.873761926825201e-61, 9.995316569081713e-58, 2.4907818039288046e-56, 3.7909987570717757e-54], 'seq': [0, 1, 2, 3, 4, 5, 6, 7, 36, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 37, 48, 49]},
+
+16: {'text': ['hesaidtokertotheeeemustbesomeehejoffthitoaythuwrtr', 'treliefinessmentoduchconfusionbusareteyhgictonnoim', 'neoftheongthelinioneplowmendwomalewhrknetmymyagnwi', 'otexcithethiefhendfitisworthygedtaltoinknreansoeyo', 'ouswhofthatlifeiatetherearemoneeleamebusayhsprngjk', 'ghatandsisnotourbeouandiweveththitsuratfoenbuhetoy', 'hourisginglateallosnottalkfateettyntoallwellenshgu', 'teviewwealltheworcatchtowerpethileapkenmencthsihmw', 'toutsidthedistantwentbarefoodoeinvisneacteranasolw', 'eproachthewindbertidgrowltwotaingrorwangedecasiphd'], 'sum': -1314.7184831613115, 'score': [7.811069806088123e-60, 6.745918135895028e-55, 3.2277167839968867e-56, 2.436799609585641e-59, 6.855283815150004e-60, 4.562663489143779e-57, 2.5578308737220334e-58, 4.329529111614586e-61, 5.503870951620988e-52, 1.3406829101357548e-59], 'seq': [16, 19, 20, 21, 22, 23, 24, 12, 9, 10, 11, 3, 4, 5, 6, 7, 36, 8, 46, 27, 28, 29, 30, 31, 32, 33, 34, 35, 2, 17, 13, 14, 15, 38, 43, 42, 40, 25, 26, 47, 41, 44, 45, 0, 1, 39, 37, 18, 49, 48]},
+
+'text': ['ofhesaidtokertotheeeemustbesomeehejofaythiwthurrtt', 'getreliefinessmentoduchconfusionbusarictoyntenomhi', 'thneoftheongthelinioneplowmendwomalewmymyngrkaniew', 'ntotexcithethiefhendfitisworthygedtalreannooiseoky', 'amouswhofthatlifeiatetherearemoneeleayhspunebrgksj', 'oughatandsisnotourbeouandiweveththitsenbuterahtyfo', 'wthourisginglateallosnottalkfateettynellelsoanhulg', 'epteviewwealltheworcatchtowerpethileancthnikeshwmm', 'tstoutsidthedistantwentbarefoodoeinvieranasneaowcl', 'ereproachthewindbertidgrowltwotaingrodecaniwaspdgh'], 'sum': -1314.847046425755, 'score': [7.3100286791806285e-59, 3.206231710975773e-53, 1.3709933458332278e-54, 4.8253836782310054e-60, 2.317900712012369e-63, 2.185475936548162e-53, 2.4635634539687467e-60, 2.0541005817905725e-59, 9.380087153267932e-56, 2.49843938144548e-59], 'seq': [41, 42, 16, 19, 20, 21, 22, 23, 24, 12, 9, 10, 11, 3, 4, 5, 6, 7, 36, 8, 46, 27, 28, 29, 30, 31, 32, 33, 34, 35, 2, 17, 13, 14, 15, 38, 43, 44, 45, 0, 1, 26, 37, 40, 25, 39, 18, 48, 47, 49]}
+
+
+
+
+
+.........................................................................
+

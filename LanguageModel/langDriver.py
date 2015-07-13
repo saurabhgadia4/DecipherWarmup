@@ -18,6 +18,10 @@ class Driver():
         for i in range(self.rowlen):
             self.remcol.add(i) 
 
+    def __fillRowObj(self):
+        for row in self.cipher:
+            self.rowobj.append(langInput.RowInput(row))
+
     def __chooseIdx(self, matrix):
         #print 'matrix', matrix
         problist = []
@@ -61,6 +65,7 @@ class Driver():
             idx = self.getNextIdx(TRIGRAM_TYPE)
             self.updateRem(idx)
             remlen = len(self.remcol)
+        return self.__sequence
 
     def getFirstIndex(self, index):
         self.updateRem(index)
@@ -75,10 +80,6 @@ class Driver():
         idx = self.__chooseIdx(probmat)
         return idx
 
-    def __fillRowObj(self):
-        for row in self.cipher:
-            self.rowobj.append(langInput.RowInput(row))
-
     def decipher(self, startIdx):
         decipherText = []
         for rownum in range(self.rowCount):
@@ -89,7 +90,28 @@ class Driver():
                 seq = decipherText[rownum]
                 seq+=self.cipher[rownum][idx]
                 decipherText[rownum] = seq
-        print 'score of decipher text: '
-        langInput.ProbMatrix.gramStub[BIGRAM_TYPE]['obj'].getScore(decipherText)
-        langInput.ProbMatrix.gramStub[TRIGRAM_TYPE]['obj'].getScore(decipherText)
-        return self.__sequence, decipherText
+        # print 'Deciphered Sequence\n',self.__sequence
+        # print '\nDeciphered Text'
+        dbiscore, dtriscore = self.calScore(decipherText)
+        # obiscore, otriscore = self.calScore(VALID_SENTENCE)
+        # print 'obiscore',otriscore
+        # print 'otriscore', otriscore
+        # print '\nOriginal Text\n'
+        #obiscore, otriscore = self.calScore(self.cipher)
+        # print 'Bigram performance comparison (O, D)'
+        # for i in range(self.rowCount):
+        #     print "(%r, %r)" % (obiscore[i], dbiscore[i])
+        # print 'trigram performance comparison (O, D)'
+        # for j in range(self.rowCount):
+        #     print "(%r, %r)" % (otriscore[j], dtriscore[j])
+
+        return self.__sequence, decipherText, dtriscore
+
+    def calScore(self, text):
+        for row in text:
+            print row
+        biscore = langInput.ProbMatrix.gramStub[BIGRAM_TYPE]['obj'].getScore(text)
+        triscore = langInput.ProbMatrix.gramStub[TRIGRAM_TYPE]['obj'].getScore(text)
+        return biscore, triscore
+
+

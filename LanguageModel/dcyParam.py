@@ -17,6 +17,8 @@ TRIGRAM_STAT = "TrigramStat.txt"
 
 BIGRAM_TYPE = 1
 TRIGRAM_TYPE = 2
+TOTAL_COLUMNS = 50
+TOTAL_ROWS = 10
 
 BIGRAM_FILES = [CORPUS_WORDS, CORPUS_CHARS, CORP_SHIFT_1, BIGRAM_PAIR_TEMP, BIGRAM_PAIR, BIGRAM_STAT, UNIGRAM_STAT]
 TRIGRAM_FILES = [CORPUS_WORDS, CORPUS_CHARS, CORP_SHIFT_1, CORP_SHIFT_2, TRIGRAM_PAIR_TEMP, TRIGRAM_PAIR, TRIGRAM_STAT, BIGRAM_STAT]
@@ -56,3 +58,41 @@ NEW_TEST = [
 'wmlptepmsttoehwchhieiavoehikrnwthaterecnltewacwele',
 'icnoovslantrebdweoifseundstntewanhioottaeatairetds',
 'cggoarrhsdewarhtipntiiretnowrddcahipwtgneoeboeldwa',]
+
+NEW_TEST1 = [
+'resaidtotheetoffokerhejheeutotheemushiswombeattytr',
+'orelieomentosareinesbustnontgtoduchceyunsinfifichm',
+'neofthoelinihewhongtmalnowartmyoneplknegndwmmewyei',
+'etexcisefhenialthethedtogysonandfitiinrothwortyeko',
+'guswhorifeialeamthateelonoreasptetheburnemeayfjhsk',
+'thatandtourbotsusisnthighthrobueouanateeveiwedonfy',
+'houristteallayntingletthetnowleosnotalksfaaleggllu',
+'heviewtheworteapeallhiltteskethcatcheneirpownwmcmw',
+'ooutsiastantivisthedeintodantanwentbeafsooreedlrcw',
+'pproacondberirorthewingeatswecatidgrantiwowldhhegd',
+]
+
+NEW_TYPE1 = [
+'thetotheeekerohejheresaidthimustbesomoutoffayetwrt', 
+'toosmentodnesibustnoreliefeychconfusiantgericuhnmi', 
+'mywheliniongtomalnoneofthekneplowmendearthwmynegiw', 
+'anyiefhendethhedtogetexcitinitisworthasontlrefkooy', 
+'spolifeiathatteelonguswhofbutherearemereamayhesnkj', 
+'butotourbeisnsthighthatandatuandiwevethrousenofeyo', 
+'letateallonglietthehourisgalnottalkfaynowtnelslsug', 
+'thetheworcallehilttheviewwentchtowerpeskepancamiwm', 
+'andistantwhedteintoooutsideantbarefoovantsierecswl', 
+'catindberthewtingeapproachandgrowltworswerodeigidh']
+
+NEW_TYPE2 = [
+'thetotheekerohejheresaidthimustbesomewoutoffayetrt',
+'toosmentdnesibustnoreliefeychconfusionantgericuhmi',
+'mywhelinongtomalnoneofthekneplowmendigearthwmyneiw',
+'anyiefhedethhedtogetexcitinitisworthnoasontlrefkoy',
+'spolifeithatteelonguswhofbutherearemanereamayheskj',
+'butotoureisnsthighthatandatuandiwevebethrousenofyo',
+'letatealonglietthehourisgalnottalkfalsynowtnelslug',
+'thethewocallehilttheviewwentchtowerprieskepancamwm',
+'andistanwhedteintoooutsideantbarefootsvantsierecwl',
+'catindbethewtingeapproachandgrowltworirswerodeigdh'
+]

@@ -1,0 +1,46 @@
+Deciphered Text
+kertotheeeemidesaustbouofheewomofayejeshthihtrtttr
+nessmentoducierelhconingetnonsiaricusfubtoyehotfim
+ngthelinionetheofplowoathnowgndewmyalmemmynkenrewi
+ethiefhendficitextiswhsntogyothalredtoreannikeotyo
+hatlifeiatethouswheretramononemeayhelarespubsgefjk
+isnotourbeouanhatandishoughtevetsenhiwetbutaftrdoy
+nglateallosnisourottainwthetsfaynelttlkelelalhoggu
+alltheworcatewevichtoeseptteirpeancilwehthnemhkwmw
+hedistantwensiouttbartatstodsoovierinefeanaecondlw
+hewindbertidacprogrowtsereatiworodenglticanagpwhhd
+
+Original Text
+
+resaidtotheetoffokerhejheeutotheemushiswombeattytr
+orelieomentosareinesbustnontgtoduchceyunsinfifichm
+neofthoelinihewhongtmalnowartmyoneplknegndwmmewyei
+etexcisefhenialthethedtogysonandfitiinrothwortyeko
+guswhorifeialeamthateelonoreasptetheburnemeayfjhsk
+thatandtourbotsusisnthighthrobueouanateeveiwedonfy
+houristteallayntingletthetnowleosnotalksfaaleggllu
+heviewtheworteapeallhiltteskethcatcheneirpownwmcmw
+ooutsiastantivisthedeintodantanwentbeafsooreedlrcw
+pproacondberirorthewingeatswecatidgrantiwowldhhegd
+Bigram performance comparison (O, D)
+(8.107060442940158e-59, 1.4488034214116283e-63)
+(8.066910115933676e-62, 1.5862306743007903e-64)
+(7.36290404743156e-66, 3.4249013440464935e-62)
+(1.787630443419054e-60, 2.7474804396955706e-59)
+(2.3335313799562345e-63, 1.9106023517377072e-62)
+(1.915876214544609e-57, 9.465179879556943e-61)
+(1.4699161298993714e-64, 5.5124999605407955e-65)
+(4.5012804680532156e-66, 5.485972612293208e-68)
+(9.599110098585334e-58, 5.167091098668086e-57)
+(5.963766412781558e-58, 1.3913354692203741e-61)
+trigram performance comparison (O, D)
+(5.693968290049727e-56, 5.698960315110328e-66)
+(2.7360909906025596e-56, 2.3091529323850562e-60)
+(2.095559921037733e-66, 8.73367033578134e-64)
+(5.7532605677311376e-61, 3.763529101515249e-60)
+(1.3868897690135661e-65, 3.0435531806704864e-62)
+(4.495673975212604e-56, 3.422502475343807e-58)
+(9.648922317145758e-60, 7.809003358254433e-69)
+(1.3658665399368409e-65, 5.251741037895947e-64)
+(4.91359667826715e-61, 8.821935175694261e-58)
+(1.242192940003143e-59, 1.0052941917191174e-62)

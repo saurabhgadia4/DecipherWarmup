@@ -1,0 +1,97 @@
+Problem: Transposition Matrix 
+
+Training Corpus Details:
+   Character Count: 664561 (After removing spaces)
+
+Methodology:
+
+ 0) For calculating bi-gram/trigram models I have truncated all spaces from corpus. For a new sentence I have '.' as preceeding       	 character before the first word.
+
+ 1) Calculate matrix of bigram pairs.
+ 2) Calculate matrix of Trigram Pairs.
+
+Smoothing method used:
+ A. Linear Interpolation:
+
+    1. Trigram Pair parameters:
+
+       l1 = 0.800
+       l2 = 0.197
+       l3 = 0.003
+
+    2. Bigram Pair parameters:
+
+       l1 = 0.997
+       l2 = 0.003
+
+::RESULTS::
+
+Test Sample:
+
+'heeemirhcletshlohttwhsnpuesecetottipoenadeamtoaexd',
+'tnreaaahninsnootottnhiaihkvnnhimttwmtieadnrisegena',
+'raomnnaytihhgchawbsindcasveedreeipeeenngcethcltswi',
+'rrginhnhrllteantfttpaiashneshoeiehrbettshofodiroho',
+'eaerigtolelyeaarufakoglceesoifwsolsbshsdgoosnkbata',
+'nebtrdpueroribgffbhmsmcaeutaoseprrerprttoocioonbah',
+'aawituendgiriygswarlaernplnotseghydtssttwathgenusu',
+'eotsruilahtnridseaicennoasadnefwhteeenfltcostyslhs',
+'aeoaaebhabmtrnoniwtarwetgnfamthsoryhoedemhmnebspti',
+'mgreironluhrdleraowlniykwafluisreaeecdtehcenpolstn'
+
+
+Deciphered Text:                                        Bigram Score           Trigram Score
+ 
+hedtoreconemsihatthethethepancousealsoexpettmielwd  6.0186888412554154e-55   5.5194673730347906e-52
+thasmaintenanwhationtontheiranthingovernmestiakind  4.873595761583451e-48    4.738078353506601e-43
+rriceandenangengsewhicebymatctasdetheloweshphnviic  1.33471781588694e-62     6.286301356672807e-60
+roodinthetrnerastefleasthisfarthiorneighbothohnlph  1.797598425264409e-62    9.265484596423972e-60   
+efansthissaiesodawuloaoforcollregobasketbaylsgeekg  1.0160791323674883e-68   8.810497592945868e-66
+nshoppropteriestheforbabutaccefemongtobarbrridurmo  1.302570431904872e-60    5.815914779293159e-54
+asuggeststatidatrewihyoanintrdspeangnewsturyhulglw  1.0307091328574226e-64   2.457585803543903e-63
+eestwinneforreelifethidalsoonasancsdaythelntsushct  2.7430573649299183e-61   8.473576689407388e-62
+atiesbemodearyrethimonawhatmeangwhsofbothptrnenbam  4.787044883558823e-61    2.2026104712000705e-61
+minproductgidenewsahellonekeylrwiclefortesranraulh  5.803830195885155e-66    5.446094672612366e-64
+
+Deciphered Sequence:
+
+[0, 29, 49, 44, 31, 6, 37, 28, 36, 38, 1, 4, 12, 34, 20, 39, 18, 30, 16, 10, 32, 13, 27, 17, 7, 3, 23, 42, 22, 8, 15, 24, 21, 41, 46, 14, 26, 45, 2, 48, 35, 47, 11, 33, 43, 5, 25, 9, 19, 40]
+
+Deciphered Score:
+
+Bigram Stat
+
+max 4.87359576158e-48
+min 1.01607913237e-68
+avg 4.87359636345e-49
+
+Trigram Stat
+
+max 4.73807835351e-43
+min 8.81049759295e-66
+avg 4.73807835908e-44
+
+Original Text                                              Bigram Score                   Trigram Score
+
+thepanelisalsoexpectedtorecommendthatthewhitehouse       2.1602253603407444e-49,      2.962964107226506e-42,
+theiraniangovernmenthasmaintainedthatitknowsnothin       9.08632136734911e-55,        1.821156716217528e-44, 
+bymatchingthelowestpriceandenhancingservicehewasde       4.1481667301616426e-55,      3.894460374949379e-49
+thisfallherneighborhoodinthenortheasternpartofthis       7.824396051059102e-55,       1.7663853383231146e-46
+forcollegebasketballfansthisisasgoodaweekasyourego       2.839399083114942e-61        5.273096423347153e-53
+butaccordingtobarbershopproprietorsthenumberoffema       3.990300464137726e-55,       1.1273575912710047e-46
+anintriguingnewstudysuggeststhatwhatreallydrawspeo       1.5487428568681753e-60,      9.72908946335228e-53
+alsoonthursdaythelatestwinnersofthelifesciencesand       1.6940467769382616e-54,      4.178463662969145e-49
+whatmembersofbothpartiesbemoanedmorethananythingwa       2.527900726039384e-55        1.4142259375244474e-49
+onekeyhurdleforteslainproducingthenewsmallercarwil       3.7915370619305204e-61       3.4451693891572557e-53
+
+Bigram Stat:
+
+max 2.16022536034e-49
+min 2.83939908311e-61
+avg 2.16026987792e-50
+
+Trigram Stat:
+
+max 2.96296410723e-42
+min 3.44516938916e-53
+avg 2.98146599758e-43

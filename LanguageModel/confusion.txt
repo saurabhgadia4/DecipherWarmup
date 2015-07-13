@@ -1,0 +1,94 @@
+4: {'text': [
+'otheeekertoutofofmidesa ustbesomeerejhaythewithhrtt', 
+'mentodnessantgeircierel hconfusionoustictounyhebmfi', 
+'eliniongthearthowetheof plowmendwonalnmymyngnekmiew', 
+'efhendethiasonthlicitex tisworthygedtoreanfonkieoty', 
+'ifeiathatlereamtathousw herearemongeloyhspenusbekfj', 
+'tourbeisnothroussuanhat andiweveththigenbuoetfatydo', 
+'teallonglaynowtinnisour ottalkfatehtthellessllaeugg', 
+'heworcallteskepeatewevi chtowerpethiltncthainmehwwm', 
+'stantwhedivantstinsiout tbarefoodoointeranesaceewdl', 
+'ndberthewirswertodacpro growltwotapngedecaiingaidhh'], 
+
+'sum': -1014.4888499517715, 'score': [1.1940667106721311e-42, 5.7902660174479275e-46, 2.3867020953062275e-43, 1.066481633575194e-43, 2.2200543298481735e-44, 3.671354023561194e-44, 6.898297281721452e-47, 2.4701454907267123e-46, 2.3524663615747883e-41, 4.502296385739798e-49], 
+
+'seq': [4, 5, 6, 7, 36, 8, 9, 10, 11, 3, 38, 39, 40, 41, 42, 12, 43, 27, 22, 23, 19, 20, 21, 
+
+28, 29, 30, 31, 32, 33, 34, 35, 2, 17, 
+
+18, 14, 15, 16, 44, 45, 0, 1, 46, 37, 26, 47, 25, 13, 48, 24, 49]},
+
+
+ 6: {'text': [
+ 'heeekertotyoutofofmidesa ustbesomee rejhathewithhrtt',  3.1573934737383524e-42,
+ 'ntodnessmecantgeircierel hconfusion oustitounyhebmfi',  7.096479174136144e-48,
+ 'iniongthelyearthowetheof plowmendwo nalnmmyngnekmiew',  7.745572971538685e-43,
+ 'hendethiefeasonthlicitex tisworthyg edtoranfonkieoty',  1.6590358841248583e-42,
+ 'eiathatlifhereamtathousw herearemon geloyspenusbekfj',  6.694829367701913e-44,
+ 'urbeisnotonthroussuanhat andiweveth thigebuoetfatydo',  5.039036245234234e-44,
+ 'allonglatelynowtinnisour ottalkfate htthelessllaeugg',  3.4230385913123937e-45,
+ 'worcalltheceskepeatewevi chtowerpet hiltnthainmehwwm',  5.191452269997055e-44,
+ 'antwhedistrvantstinsiout tbarefoodo ointeanesaceewdl',  7.613300464019589e-42,
+ 'berthewinderswertodacpro growltwota pngedcaiingaidhh',  6.197407869524927e-48 
+
+ 'sum': -1001.8297870593249, 'score': 
+
+ 'seq': [6, 7, 36, 8, 9, 10, 11, 3, 4, 5, 45, 38, 39, 40, 41, 42, 12, 43, 27, 22, 23, 19, 20, 21, 
+
+ 28, 29, 30, 31, 32, 33, 34, 35, 2,17, 18,
+ 14, 15, 16, 44, 0, 1, 46, 37, 26, 47, 25, 13, 48, 24, 49]},
+
+ 22: {'text': [
+ 'iotheeekertoutofof mustbesomeeresathehayhiwedthjttr', 
+ 'imentodnessantgeir chconfusionoreltouticbynuefeshim', 
+ 'teliniongthearthow eplowmendwoneofmyanmymngnheklewi', 
+ 'cefhendethiasonthl itisworthygetexandoreenofititkyo', 
+ 'hifeiathatlereamta therearemonguswspeoyheuneofblsjk', 
+ 'atourbeisnothrouss uandiweveththatbuhgentteondaifoy', 
+ 'iteallonglaynowtin nottalkfatehourlethelelsssgatlgu', 
+ 'eheworcallteskepea tchtowerpethevithitnchniawwelmmw', 
+ 'sstantwhedivantsti ntbarefoodoooutanitereaseidenclw', 
+ 'andberthewirswerto dgrowltwotapprocanedeiniichagghd'
+
+ ], 'sum': -1021.4058850349716, 'score': [2.1111682357928483e-46, 4.3067062308203e-44, 1.7626617483500973e-43, 1.8777308555563163e-42, 1.0730607821603177e-51, 2.638686501546465e-43, 1.0851203375338666e-47, 4.662577214103616e-47, 6.3116359193212806e-40, 9.426097640110564e-45], 'seq': [22, 4, 5, 6, 7, 36, 8, 9, 10, 11, 3, 38, 39, 40, 41, 42, 12, 43, 27, 
+
+ 28, 29, 30, 31, 32, 33, 34, 35, 2,17,18,
+  19, 20, 21, 0, 1, 14, 16, 44, 45, 13, 26, 37, 46, 23, 24, 25, 15, 47, 49, 48]},
+
+
+ 38: {'text': [
+ 'outofokertotheeeemidesau stbesomeerejhaythhfiwhttrt',
+ 'antgeinessmentoducierelh confusionoustictobrynehimf',
+ 'earthongthelinionetheofp lowmendwonalnmymymwngkewie',
+ 'asonthethiefhendficitext isworthygedtoreanelnoikyot', 
+ 'ereamthatlifeiatethouswh erearemongeloyhspeaunbsjkf', 
+ 'throusisnotourbeouanhata ndiweveththigenbutsteafoyd', 
+ 'ynowtinglateallosnisouro ttalkfatehtthelleenlsalgug', 
+ 'eskepealltheworcatewevic htowerpethiltncthhaniemmww', 
+ 'vantsthedistantwensioutt barefoodoointeraneiaseclwd', 
+ 'rswerthewindbertidacprog rowltwotapngedecaioniaghdh'
+
+ 'sum': -1022.7602231156983, 'score': [2.8035737456076434e-47, 2.7256234597030886e-44, 2.880658232387486e-44, 4.230554474971003e-42, 4.0573519394663653e-50, 3.708720254691772e-41, 9.856629657400009e-47, 1.6381568682132914e-45, 3.626183541020404e-41, 8.068846531106336e-49], 
+ 'seq': [38, 39, 40, 41, 42, 12, 9, 10, 11, 3, 4, 5, 6, 7, 36, 8, 46, 27, 22, 23, 19, 20, 21, 
+
+ 28, 29, 30, 31, 32, 33, 34, 35, 2, 17,18,
+
+  14, 15, 16, 44, 45, 0, 1, 13, 43, 26, 37, 25, 47, 49, 48, 24]},
+
+ 45: {'text': [
+ 'youtofokertotheeeemidesau stbesomeerejhathhfiwhttrt', 
+ 'cantgeinessmentoducierelh confusionoustitobrynehimf', 
+ 'yearthongthelinionetheofp lowmendwonalnmmymwngkewie', 
+ 'easonthethiefhendficitext isworthygedtoranelnoikyot', 
+ 'hereamthatlifeiatethouswh erearemongeloyspeaunbsjkf', 
+ 'nthrousisnotourbeouanhata ndiweveththigebutsteafoyd', 
+ 'lynowtinglateallosnisouro ttalkfatehttheleenlsalgug', 
+ 'ceskepealltheworcatewevic htowerpethiltnthhaniemmww', 
+ 'rvantsthedistantwensioutt barefoodoointeaneiaseclwd', 
+ 'erswerthewindbertidacprog rowltwotapngedcaioniaghdh'
+
+ ], 'sum': -1017.059707593204, 'score': [1.9614764791932318e-45, 4.3426172005189883e-44, 1.80293125243661e-43, 4.211568390292636e-43, 3.498713740636864e-48, 1.2718659341833032e-41, 1.324626721702427e-46, 2.243939114338756e-44, 7.18579164781677e-43, 3.220287168359304e-49], 
+ 'seq': [45, 38, 39, 40, 41, 42, 12, 9, 10, 11, 3, 4, 5, 6, 7, 36, 8, 46, 27, 22, 23, 19, 20, 21, 
+ 
+ 28, 29, 30, 31, 32, 33, 34, 35, 2,17,18,
+ 14, 15, 16, 44, 0, 1, 13, 43, 26, 37, 25, 47, 49, 48, 24]},

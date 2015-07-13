@@ -7,6 +7,7 @@ from string import ascii_lowercase
 import dcyParam
 import langCompute
 import logging
+import langSmooth
 import statistics
 
 
@@ -53,40 +54,19 @@ class BigramModel(UnigramModel):
             # self.__bigram(dcyParam.VALID_SENTENCE)
             # self.__bigram(dcyParam.TEST_SENTENCE)
             # self.__bigram(dcyParam.NEW_TEST)
-            self.__bigram(text)
+            rowPoss = self.__bigram(text)
         except Exception as e:
             logging.exception(e)
+        return rowPoss
 
     def __bigram(self, text):
         possibility = 1
         rowPoss = []
+        self.scoring =  langSmooth.Scoring(None, self.computeMat, self.totalCount, self.total)
         for row in text:
             row = '.' + row
-            rowPoss.append(self.__calCond(row))
-        print '\n\n--------------New Record----------------'
-        print 'rowPoss',rowPoss
-        print 'max', max(rowPoss)
-        print 'min', min(rowPoss)
-        print 'avg', statistics.mean(rowPoss)
-
-    def __calCond(self, row):
-        possibility =1
-        row = list(row)
-        for i in range(1, len(row)):
-            try:
-                prefix = row[i-1]
-                current = row[i]
-                #print prefix,'-',current
-                condCount = self.computeMat[prefix][current]
-                prefixCount = self.totalCount[prefix]
-                possibility = possibility*(float(condCount)/prefixCount)
-                #print 'p(%r|%r)'%(current,prefix),'--> condCount: ',condCount, ' prefixCount: ', prefixCount, ' =', possibility 
-            except KeyError:
-                condCount = self.computeMat[prefix][current] = self.minCount
-                prefixCount = self.totalCount[prefix]
-                possibility = possibility*(float(condCount)/prefixCount)
-
-        return possibility
+            rowPoss.append(self.scoring.bigramScore(row))
+        return rowPoss
 
     def getScoreMat(self):
         #1. Break sentence to words
@@ -176,26 +156,19 @@ class TrigramModel():
 
     def getScore(self, text):
         try:
-            print '..........................TRIGRAM STATS.............................'
-            # self.__trigram(dcyParam.VALID_SENTENCE)
-            # self.__trigram(dcyParam.TEST_SENTENCE)
-            # self.__trigram(dcyParam.NEW_TEST)
-            self.__trigram(text)
+            rowPoss = self.__trigram(text)
         except Exception as e:
             logging.exception(e)
+        return rowPoss
 
     def __trigram(self, text):
         possibility = 1
         rowPoss = []
+        self.scoring = langSmooth.Scoring(self.computeMat, self.bigramStub.computeMat, self.bigramStub.totalCount, self.bigramStub.total)
         for row in text:
             row = '.' + row
-            rowPoss.append(self.__calCond(row))
-
-        print '\n\n--------------New Record----------------'
-        print 'rowPoss',rowPoss
-        print 'max', max(rowPoss)
-        print 'min', min(rowPoss)
-        print 'avg', statistics.mean(rowPoss)
+            rowPoss.append(self.scoring.trigramScore(row))
+        return rowPoss
 
     def __calCond(self, row):
         possibility =1
