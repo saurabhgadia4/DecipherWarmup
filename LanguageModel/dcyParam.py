@@ -20,7 +20,7 @@ TRIGRAM_TYPE = 2
 TOTAL_COLUMNS = 50
 TOTAL_ROWS = 10
 
-BIGRAM_FILES = [CORPUS_WORDS, CORPUS_CHARS, CORP_SHIFT_1, BIGRAM_PAIR_TEMP, BIGRAM_PAIR, BIGRAM_STAT, UNIGRAM_STAT]
+BIGRAM_FILES = [CORPUS_CLEAN, CORPUS_WORDS, CORPUS_CHARS, CORP_SHIFT_1, BIGRAM_PAIR_TEMP, BIGRAM_PAIR, BIGRAM_STAT, UNIGRAM_STAT]
 TRIGRAM_FILES = [CORPUS_WORDS, CORPUS_CHARS, CORP_SHIFT_1, CORP_SHIFT_2, TRIGRAM_PAIR_TEMP, TRIGRAM_PAIR, TRIGRAM_STAT, BIGRAM_STAT]
 
 VALID_SENTENCE =[ 
@@ -34,6 +34,20 @@ VALID_SENTENCE =[
 'alsoonthursdaythelatestwinnersofthelifesciencesand',
 'whatmembersofbothpartiesbemoanedmorethananythingwa',
 'onekeyhurdleforteslainproducingthenewsmallercarwil']
+
+
+VALID_SENTENCE_P_1 = [
+'tommendthatthedtorecepanelisalsoexpectisehouthehwe', 
+'ttainedthatithasmaineiraniangovernmenswinoththnonk', 
+'penhancingserriceandmatchingthelowesthedewasbyeciv', 
+'henortheasteroodinthisfallherneighbortriofththsapn', 
+'lsisasgoodawefansthircollegebasketbalysgourefooake', 
+'rprietorsthenshopprotaccordingtobarberemoffebuabmu', 
+'ysthatwhatreasuggestintriguingnewstudrdeawspanoyll', 
+'tersofthelifeestwinnsoonthursdaythelanencesaaldics', 
+'roanedmorethatiesbematmembersofbothpatywhingwhanan', 
+'acingthenewsminproduekeyhurdleforteslreicarwonllla'
+]
 
 TEST_SENTENCE = [
 'heeemirhcletshlohttwhsnpuesecetottipoenadeamtoaexd',

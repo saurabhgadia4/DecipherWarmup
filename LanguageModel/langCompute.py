@@ -147,3 +147,14 @@ def removeLastLines(nlines, inputfile, outputfile):
             print 'successfully removed ',nlines, 'from ',inputfile
         except Exception as e:
             logging.exception(e)
+
+def formText(text, seq):
+    orderedText = []
+    for idx in range(len(text)):
+        orderedText.append('')
+    for idx in seq:
+        i = 0
+        for row in text:
+            orderedText[i] = orderedText[i] + row[idx]
+            i+=1
+    return orderedText

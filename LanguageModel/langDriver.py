@@ -90,22 +90,8 @@ class Driver():
                 seq = decipherText[rownum]
                 seq+=self.cipher[rownum][idx]
                 decipherText[rownum] = seq
-        # print 'Deciphered Sequence\n',self.__sequence
-        # print '\nDeciphered Text'
         dbiscore, dtriscore = self.calScore(decipherText)
-        # obiscore, otriscore = self.calScore(VALID_SENTENCE)
-        # print 'obiscore',otriscore
-        # print 'otriscore', otriscore
-        # print '\nOriginal Text\n'
-        #obiscore, otriscore = self.calScore(self.cipher)
-        # print 'Bigram performance comparison (O, D)'
-        # for i in range(self.rowCount):
-        #     print "(%r, %r)" % (obiscore[i], dbiscore[i])
-        # print 'trigram performance comparison (O, D)'
-        # for j in range(self.rowCount):
-        #     print "(%r, %r)" % (otriscore[j], dtriscore[j])
-
-        return self.__sequence, decipherText, dtriscore
+        return self.__sequence, dtriscore
 
     def calScore(self, text):
         for row in text:

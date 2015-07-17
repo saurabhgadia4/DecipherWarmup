@@ -1,0 +1,34 @@
+[
+
+'tommendthatthedtorecepanelisalsoexpectisehouthehwe', 
+'ttainedthatithasmaineiraniangovernmenswinoththnonk', 
+'penhancingserriceandmatchingthelowesthedewasbyeciv', 
+'henortheasteroodinthisfallherneighbortriofththsapn', 
+'lsisasgoodawefansthircollegebasketbalysgourefooake', 
+'rprietorsthenshopprotaccordingtobarberemoffebuabmu', 
+'ysthatwhatreasuggestintriguingnewstudrdeawspanoyll', 
+'tersofthelifeestwinnsoonthursdaythelanencesaaldics', 
+'roanedmorethatiesbematmembersofbothpatywhingwhanan', 
+'acingthenewsminproduekeyhurdleforteslreicarwonllla'
+
+], 'sum': -881.0128115816301, 'score': [2.213573515669843e-32, 4.475152127810643e-36, 7.389514590448439e-36, 2.007188438073337e-38, 4.887850994289774e-44, 2.9891892038307433e-40, 8.540105778713743e-43, 8.431008005930981e-41, 8.016152975435753e-36, 1.940490504783726e-43], 'seq': [19, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 20, 21, 22, 23, 24, 25, 26, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 43, 42, 48, 44, 45, 46, 47, 0, 1, 49, 41, 40, 39]}
+
+..................................original explicit score ..........................................
+thepanelisalsoexpectedtorecommendthatthewhitehouse
+theiraniangovernmenthasmaintainedthatitknowsnothin
+bymatchingthelowestpriceandenhancingservicehewasde
+thisfallherneighborhoodinthenortheasternpartofthis
+forcollegebasketballfansthisisasgoodaweekasyourego
+butaccordingtobarbershopproprietorsthenumberoffema
+anintriguingnewstudysuggeststhatwhatreallydrawspeo
+alsoonthursdaythelatestwinnersofthelifesciencesand
+whatmembersofbothpartiesbemoanedmorethananythingwa
+onekeyhurdleforteslainproducingthenewsmallercarwil
+
+
+triscore [5.294549870825873e-29, 8.174061409259004e-32, 2.2481867003854933e-35, 1.9362484167210062e-33, 1.804916811871105e-39, 2.3222062180697928e-33, 9.83792158401625e-40, 3.1404208608979477e-35, 7.310364901105191e-36, 1.3976647523973637e-39]
+
+sum -795.781118018
+
+
+I can acheive same score in all iteration that I acheived in 1st iteration. So 1 time iteration is enough.

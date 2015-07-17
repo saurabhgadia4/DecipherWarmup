@@ -53,7 +53,19 @@ sum = -807.2719773116299  <<<<Baseline>>>>
 
 
 
-15: {'text': ['jokertotheeeemidesaustbesomoutofherewitheayhfthttr', 'sinessmentoducierelhconfusiantgetnoonytouicbriehfm', 'longthelinionetheofplowmendearthnonwgnmyamymwwkeei', 'thethiefhendficitextisworthasontogeyonandreelyikto', 'lthatlifeiatethouswherearemereamongonuspeyheajbsfk', 'isisnotourbeouanhatandiwevethroughttetbuhentsoafdy', 'tinglateallosnisourottalkfaynowthehtslletelengalgu', 'lealltheworcatewevichtowerpeskepttheinthinchamemww', 'nthedistantwensiouttbarefoovantstoodsaaniereilecdw', 'gthewindbertidacprogrowltworswereaptincandeiohaghd'], 'sum': -999.819911643112, 'score': [3.905782577805467e-41, 2.4374578169437555e-50, 1.0613610469052247e-47, 7.992649157701044e-39, 9.603305654609671e-50, 1.4953564596851602e-43, 4.4457814600627165e-46, 2.1230065431049147e-38, 1.6313891002045082e-42, 3.403360291365175e-43], 'seq': [15, 12, 9, 10, 11, 3, 4, 5, 6, 7, 36, 8, 46, 27, 22, 23, 19, 20, 21, 
+15: {'text': [
+'joke r t othe eee  ide sa mustbesom o u tofhe rewitheayhfthttr', 
+'sine s s ment odu  ier el chconfusi a n tgetn oonytouicbriehfm', 
+'long t h elin ion  the of eplowmend e a rthno nwgnmyamymwwkeei', 
+'thet h i efhe ndf  cit ex itisworth a s ontog eyonandreelyikto', 
+'ltha t l ifei ate  hou sw therearem e r eamon gonuspeyheajbsfk', 
+'isis n o tour beo  anh at uandiweve t h rough ttetbuhentsoafdy', 
+'ting l a teal los  iso ur nottalkfa y n owthe htslletelengalgu', 
+'leal l t hewo rca  ewe vi tchtowerp e s keptt heinthinchamemww', 
+'nthe d i stan twe  sio ut ntbarefoo v a ntsto odsaaniereilecdw', 
+'gthe w i ndbe rti  acp ro dgrowltwo r s werea ptincandeiohaghd'
+
+], 'sum': -999.819911643112, 'score': [3.905782577805467e-41, 2.4374578169437555e-50, 1.0613610469052247e-47, 7.992649157701044e-39, 9.603305654609671e-50, 1.4953564596851602e-43, 4.4457814600627165e-46, 2.1230065431049147e-38, 1.6313891002045082e-42, 3.403360291365175e-43], 'seq': [15, 12, 9, 10, 11, 3, 4, 5, 6, 7, 36, 8, 46, 27, 22, 23, 19, 20, 21, 
 
 
 28, 29, 30, 31, 32, 33, 34, 35, 
