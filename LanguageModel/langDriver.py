@@ -94,8 +94,6 @@ class Driver():
         return self.__sequence, dtriscore
 
     def calScore(self, text):
-        for row in text:
-            print row
         biscore = langInput.ProbMatrix.gramStub[BIGRAM_TYPE]['obj'].getScore(text)
         triscore = langInput.ProbMatrix.gramStub[TRIGRAM_TYPE]['obj'].getScore(text)
         return biscore, triscore

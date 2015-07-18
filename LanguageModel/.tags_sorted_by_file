@@ -3,8 +3,11 @@
 !_TAG_PROGRAM_VERSION	5.9~svn20110310	//
 !_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
 !_TAG_PROGRAM_NAME	Exuberant Ctags	//
-driverobj	__init__.py	/^	driverobj = langDriver.Driver(dcyParam.TEST_SENTENCE)$/;"	v
-BIGRAM_FILES	dcyParam.py	/^BIGRAM_FILES = [CORPUS_WORDS, CORPUS_CHARS, CORP_SHIFT_1, BIGRAM_PAIR_TEMP, BIGRAM_PAIR, BIGRAM_STAT, UNIGRAM_STAT]$/;"	v
+CIPHER_TEXT	__init__.py	/^	CIPHER_TEXT = dcyParam.NEW_TEST$/;"	v
+deriveSimilarity	__init__.py	/^def deriveSimilarity(allSeq):$/;"	f
+generateResult	__init__.py	/^def generateResult(cipher):$/;"	f
+printStat	__init__.py	/^def printStat(allSeq, maxseq):$/;"	f
+BIGRAM_FILES	dcyParam.py	/^BIGRAM_FILES = [CORPUS_CLEAN, CORPUS_WORDS, CORPUS_CHARS, CORP_SHIFT_1, BIGRAM_PAIR_TEMP, BIGRAM_PAIR, BIGRAM_STAT, UNIGRAM_STAT]$/;"	v
 BIGRAM_PAIR	dcyParam.py	/^BIGRAM_PAIR  = "BigramPair.txt"$/;"	v
 BIGRAM_PAIR_TEMP	dcyParam.py	/^BIGRAM_PAIR_TEMP = "BPairTemp.txt"$/;"	v
 BIGRAM_STAT	dcyParam.py	/^BIGRAM_STAT  = "BigramStat.txt"$/;"	v
@@ -16,7 +19,12 @@ CORPUS_WORDS	dcyParam.py	/^CORPUS_WORDS = "StoW.txt"$/;"	v
 CORP_SHIFT_1	dcyParam.py	/^CORP_SHIFT_1 = "CorpShift.txt"$/;"	v
 CORP_SHIFT_2	dcyParam.py	/^CORP_SHIFT_2 = "CorpShift_2.txt"$/;"	v
 NEW_TEST	dcyParam.py	/^NEW_TEST = [$/;"	v
+NEW_TEST1	dcyParam.py	/^NEW_TEST1 = [$/;"	v
+NEW_TYPE1	dcyParam.py	/^NEW_TYPE1 = [$/;"	v
+NEW_TYPE2	dcyParam.py	/^NEW_TYPE2 = [$/;"	v
 TEST_SENTENCE	dcyParam.py	/^TEST_SENTENCE = [$/;"	v
+TOTAL_COLUMNS	dcyParam.py	/^TOTAL_COLUMNS = 50$/;"	v
+TOTAL_ROWS	dcyParam.py	/^TOTAL_ROWS = 10$/;"	v
 TRIGRAM_FILES	dcyParam.py	/^TRIGRAM_FILES = [CORPUS_WORDS, CORPUS_CHARS, CORP_SHIFT_1, CORP_SHIFT_2, TRIGRAM_PAIR_TEMP, TRIGRAM_PAIR, TRIGRAM_STAT, BIGRAM_STAT]$/;"	v
 TRIGRAM_PAIR	dcyParam.py	/^TRIGRAM_PAIR = "TrigramPair.txt"$/;"	v
 TRIGRAM_PAIR_TEMP	dcyParam.py	/^TRIGRAM_PAIR_TEMP = "TriPairTemp.txt"$/;"	v
@@ -24,11 +32,13 @@ TRIGRAM_STAT	dcyParam.py	/^TRIGRAM_STAT = "TrigramStat.txt" $/;"	v
 TRIGRAM_TYPE	dcyParam.py	/^TRIGRAM_TYPE = 2$/;"	v
 UNIGRAM_STAT	dcyParam.py	/^UNIGRAM_STAT = "UnigramStat.txt"$/;"	v
 VALID_SENTENCE	dcyParam.py	/^VALID_SENTENCE =[ $/;"	v
+VALID_SENTENCE_P_1	dcyParam.py	/^VALID_SENTENCE_P_1 = [$/;"	v
 !_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
 calPairCount	langCompute.py	/^def calPairCount(inputfile, outputfile):$/;"	f
 cleanStats	langCompute.py	/^def cleanStats():$/;"	f
 deleteFiles	langCompute.py	/^def deleteFiles(path=None, files=[]):$/;"	f
 formPairs	langCompute.py	/^def formPairs(output, *args):$/;"	f
+formText	langCompute.py	/^def formText(text, seq):$/;"	f
 genCharCount	langCompute.py	/^def genCharCount():$/;"	f
 getCharCount	langCompute.py	/^def getCharCount():$/;"	f
 removeLastLines	langCompute.py	/^def removeLastLines(nlines, inputfile, outputfile):$/;"	f
@@ -42,6 +52,7 @@ __fillRowObj	langDriver.py	/^    def __fillRowObj(self):$/;"	m	class:Driver	file
 __getMaxIdx	langDriver.py	/^    def __getMaxIdx(self, problist):$/;"	m	class:Driver	file:
 __initRemSet	langDriver.py	/^    def __initRemSet(self):$/;"	m	class:Driver	file:
 __init__	langDriver.py	/^    def __init__(self, cipher):$/;"	m	class:Driver
+calScore	langDriver.py	/^    def calScore(self, text):$/;"	m	class:Driver
 decipher	langDriver.py	/^    def decipher(self, startIdx):$/;"	m	class:Driver
 genSequence	langDriver.py	/^    def genSequence(self, startIdx):$/;"	m	class:Driver
 getFirstIndex	langDriver.py	/^    def getFirstIndex(self, index):$/;"	m	class:Driver
@@ -60,11 +71,11 @@ getPrefix	langInput.py	/^    def getPrefix(self, pfxlist):$/;"	m	class:RowInput
 getRemProb	langInput.py	/^    def getRemProb(self, pfxIdxList, posList, gramtype):$/;"	m	class:RowInput
 gramStub	langInput.py	/^    gramStub = {}$/;"	v	class:ProbMatrix
 removeCol	langInput.py	/^    def removeCol(self, columnIdx):$/;"	m	class:RowInput
-BigramModel	langModels.py	/^class BigramModel():$/;"	c
+smoothHndl	langInput.py	/^    smoothHndl = langSmooth.LinearInt(gramStub[TRIGRAM_TYPE]['mat'], gramStub[BIGRAM_TYPE]['mat'], gramStub[BIGRAM_TYPE]['obj'].totalCount, gramStub[BIGRAM_TYPE]['obj'].total)$/;"	v	class:ProbMatrix
+BigramModel	langModels.py	/^class BigramModel(UnigramModel):$/;"	c
 TrigramModel	langModels.py	/^class TrigramModel():$/;"	c
 UnigramModel	langModels.py	/^class UnigramModel():$/;"	c
 __bigram	langModels.py	/^    def __bigram(self, text):$/;"	m	class:BigramModel	file:
-__calCond	langModels.py	/^    def __calCond(self, row):$/;"	m	class:BigramModel	file:
 __calCond	langModels.py	/^    def __calCond(self, row):$/;"	m	class:TrigramModel	file:
 __initMatrix	langModels.py	/^    def __initMatrix(self):$/;"	m	class:BigramModel	file:
 __initMatrix	langModels.py	/^    def __initMatrix(self):$/;"	m	class:TrigramModel	file:
@@ -74,9 +85,25 @@ __init__	langModels.py	/^    def __init__(self):$/;"	m	class:UnigramModel
 __trigram	langModels.py	/^    def __trigram(self, text):$/;"	m	class:TrigramModel	file:
 genScoreMatrix	langModels.py	/^    def genScoreMatrix(self):$/;"	m	class:BigramModel
 genScoreMatrix	langModels.py	/^    def genScoreMatrix(self):$/;"	m	class:TrigramModel
+genUniStat	langModels.py	/^    def genUniStat(self):$/;"	m	class:UnigramModel
 generate	langModels.py	/^    def generate(self):$/;"	m	class:BigramModel
 generate	langModels.py	/^    def generate(self):$/;"	m	class:TrigramModel
 getScore	langModels.py	/^    def getScore(self, text):$/;"	m	class:BigramModel
 getScore	langModels.py	/^    def getScore(self, text):$/;"	m	class:TrigramModel
 getScoreMat	langModels.py	/^    def getScoreMat(self):$/;"	m	class:BigramModel
 getScoreMat	langModels.py	/^    def getScoreMat(self):$/;"	m	class:TrigramModel
+getSubstrMatrix	langSimilarity.py	/^def getSubstrMatrix(seq1, seq2, simDict = {}):$/;"	f
+seq1	langSimilarity.py	/^    seq1 = [0, 41, 25, 47, 43, 23, 28, 15, 33, 40, 48, 34, 5, 8, 27, 42, 6, 37, 44, 9, 49, 13, 21, 31, 32, 24, 35, 22, 26, 38, 18, 2, 10, 4, 17, 19, 16, 29, 45, 39, 20, 36, 3, 11, 46, 12, 1, 7, 30, 14]$/;"	v
+seq2	langSimilarity.py	/^    seq2 = [26, 49, 0, 35, 22, 23, 41, 25, 47, 43, 13, 37, 33, 40, 48, 34, 5, 8, 27, 42, 6, 10, 4, 17, 24, 15, 44, 9, 28, 20, 39, 31, 32, 18, 38, 16, 19, 36, 3, 11, 45, 21, 29, 14, 12, 46, 1, 7, 30, 2]$/;"	v
+simDict	langSimilarity.py	/^    simDict = getSubstrMatrix(seq1, seq2)$/;"	v
+travSubstr	langSimilarity.py	/^def travSubstr(simDict, submat, row, col, rowlen, prefix='', add=1):$/;"	f
+Handle	langSmooth.py	/^class Handle():$/;"	c
+LinearInt	langSmooth.py	/^class LinearInt(Handle):$/;"	c
+Scoring	langSmooth.py	/^class Scoring():$/;"	c
+__init__	langSmooth.py	/^    def __init__(self, trimat, bimat, unimat, total):$/;"	m	class:Handle
+__init__	langSmooth.py	/^    def __init__(self, trimat, bimat, unimat, total):$/;"	m	class:LinearInt
+__init__	langSmooth.py	/^    def __init__(self, trimat, bimat, unimat, total):$/;"	m	class:Scoring
+biSmooth	langSmooth.py	/^    def biSmooth(self, prefix, current, l1=0.9999, l2=0.0001):$/;"	m	class:LinearInt
+bigramScore	langSmooth.py	/^    def bigramScore(self, text):$/;"	m	class:Scoring
+triSmooth	langSmooth.py	/^    def triSmooth(self, prefix, current, l1=0.98, l2=0.0199):$/;"	m	class:LinearInt
+trigramScore	langSmooth.py	/^    def trigramScore(self, text):$/;"	m	class:Scoring
