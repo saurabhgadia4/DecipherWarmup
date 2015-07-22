@@ -1,0 +1,139 @@
+Problem: Transposition Matrix 
+
+Training Corpus Details:
+   Character Count: 664561 (After removing spaces)
+
+Methodology:
+
+	Scoring:
+ 
+
+	 0) For calculating bi-gram/trigram models I have truncated all spaces from corpus. For a new sentence I have '.' as preceeding character before the first word.
+
+	 1) Calculate matrix of bigram pairs.
+	 2) Calculate matrix of Trigram Pairs.
+
+	Searching:
+	 0) I have used greedy approach for searching the decipher sequence by selecting best trigram pairs..
+	 1) I find 50 sequences based on above greedy approach by choosing each column in given cipher text as 1st column and then compute the rest.
+
+
+Smoothing method used:
+ A. Linear Interpolation:
+
+    1. Trigram Pair parameters:
+    	l1 = 0.98
+    	l2 = 0.0199
+
+    2. Bigram Pair paramters:
+         l1=0.9999
+
+:: Results ::
+
+1. Score of valid non-permuted sample text:
+                            
+                        Text                                   Trigram Score
+
+    'thepanelisalsoexpectedtorecommendthatthewhitehouse', 1.8153793328033858e-29
+	'theiraniangovernmenthasmaintainedthatitknowsnothin', 3.1569744581080074e-32
+	'bymatchingthelowestpriceandenhancingservicehewasde', 5.5819857935869875e-36
+	'thisfallherneighborhoodinthenortheasternpartofthis', 4.958188998944315e-34
+	'forcollegebasketballfansthisisasgoodaweekasyourego', 6.853178871982857e-40
+	'butaccordingtobarbershopproprietorsthenumberoffema', 7.2247952345661034e-34
+	'anintriguingnewstudysuggeststhatwhatreallydrawspeo', 4.173345852848206e-40
+	'alsoonthursdaythelatestwinnersofthelifesciencesand', 8.85374820616035e-36
+	'whatmembersofbothpartiesbemoanedmorethananythingwa', 1.787366120783384e-36
+	'onekeyhurdleforteslainproducingthenewsmallercarwil'  4.9129452394211025e-40
+
+	 Overall Text score by taking log: sum = -807.2719773116299
+
+2. Score and search sequence of permuted valid sample text:
+
+                      Text                                             Trigram Score
+
+	'tommendthatthedtorecepanelisalsoexpectisehouthehwe',          2.213573515669843e-32
+	'ttainedthatithasmaineiraniangovernmenswinoththnonk',          4.475152127810643e-36
+	'penhancingserriceandmatchingthelowesthedewasbyeciv',          7.389514590448439e-36
+	'henortheasteroodinthisfallherneighbortriofththsapn',          2.007188438073337e-38
+	'lsisasgoodawefansthircollegebasketbalysgourefooake',          4.887850994289774e-44
+	'rprietorsthenshopprotaccordingtobarberemoffebuabmu',          2.9891892038307433e-40
+	'ysthatwhatreasuggestintriguingnewstudrdeawspanoyll',          8.540105778713743e-43
+	'tersofthelifeestwinnsoonthursdaythelanencesaaldics',          8.431008005930981e-41
+	'roanedmorethatiesbematmembersofbothpatywhingwhanan',          8.016152975435753e-36
+	'acingthenewsminproduekeyhurdleforteslreicarwonllla'           1.940490504783726e-43
+
+
+	'sum': -881.0128115816301 
+	'seq': [19, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 20, 21, 22, 23, 24, 25, 26, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 43, 42, 48, 44, 45, 46, 47, 0, 1, 49, 41, 40, 39]}
+
+	If I give any permuted input of valid sample test I get the above decipher text.
+
+3. Results of test cipher:
+
+ Cipher text:
+   NEW_TEST = [
+	'dtjmeoftumhbhstehresweseeoatearthkteoouietohfyetri',
+	'ehsinaeinctnecfdbouunuetomltoimtonsrsihyeognrcfesi',
+	'heldoehwaenwkleomnaegnonwefrimimynhenopngotiwymltt',
+	'ikthgatysiowiitdeedrofeeyexonroaneitthtntsnhleofhc',
+	'oslmnemjrtoebeftegernesioiweayksphluethuaraeahafth',
+	'nfiehtuohugiandettheeoartttrbeybuiohvsatsdousnwona',
+	'sltaeytgnnhaatgoehtkssulttroleulenaofiolgtwanlleli',
+	'wmlptepmsttoehwchhieiavoehikrnwthaterecnltewacwele',
+	'icnoovslantrebdweoifseundstntewanhioottaeatairetds',
+	'cggoarrhsdewarhtipntiiretnowrddcahipwtgneoeboeldwa',] 
+
+
+ Decipher result:
+
+ 					Text                                               Trigram Score
+
+	'thetotheeekerhejoyoutofhesaidtbesomsemuferwathittr',         1.0197857738450811e-41
+	'toosmentodnesbusicantgetrelieonfusicuchrnonifeyhim',         2.0604173356396309e-47
+	'mywheliniongtmaloyearthneofthowmendlnepwongmeknewi',         4.118252990768212e-41
+	'anyiefhendethedtheasontotexcisworthifitlgeortinkyo',         1.513453053551461e-39
+	'spolifeiathateelthereamouswhorearemeethangnyfbusjk',         3.983402376230706e-46
+	'butotourbeisnthisnthroughatandiwevenouashteedatfoy',         7.457094496349349e-39
+	'letateallonglettilynowthouristalkfatsnonehsegallgu',         5.874914878533171e-43
+	'thetheworcallhileceskepteviewtowerphatcathinwenmmw',         2.643869740286041e-42
+	'andistantwhedeintrvantstoutsiarefoobentioosedeaclw',         1.1049970974402114e-38
+	'catindberthewingterswereproacowltworidgoapidhanghd'          5.87301342505947e-41
+
+  'sum': -949.6012117943361, 
+  'seq': [31, 32, 24, 34, 25, 47, 43, 23, 28, 15, 33, 40, 48, 16, 18, 2, 37, 45, 5, 8, 27, 42, 6, 10, 35, 22, 26, 49, 0, 41, 11, 46, 19, 36, 3, 13, 21, 9, 38, 44, 4, 17, 20, 29, 14, 12, 39, 1, 7, 30]
+
+  Further Enhancement:
+  
+  1. Above score was the best possible result that could be acheived by greedy approach. Among 50 result sequence based on the 1st selected column in decipher text, above decipher is the best result.
+
+  2. Based on 50 sequences I tried to go for pattern matching between the 50 deciphered sequence. I generated all substring based on all combination (50C2).
+
+  3. Result of above step I got all the possible branches that appeared in deciphered 50 sequences for each node with the weight of sequence as number of times that sequence appeared in all combination.
+
+  Can I try:
+
+  1. I am pretty sure that greedy will just get me to a certain sequence which will of course not be perfect deciphered text.
+
+  2. Based on substring and 50 deciphered sequences I can generate a graph which has edges between nodes forming a path based sequnece of deciphered text. I will have weight as the score that I got for substring matching algorithm.
+
+  3. With above graph formation I will get all possible branches for a particular node i.e ( column in cipher text).
+
+
+
+Output Sample:
+
+1. Output of substring matching:
+ ('35-22-26-', 354)
+
+ ('5-8-27-42-6-', 292)
+
+ ('25-47-43-', 286)
+
+ ('5-', 273)
+
+ ('36-3-', 267)
+
+ ('37-33-40-48-34-25-47-43-', 44)
+ ..
+ ..
+ .
